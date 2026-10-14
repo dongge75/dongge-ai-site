@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="示例文章"
+  description="这是一篇占位文章，等你写第一篇时会被替换"
+>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+    <a href="/blog" class="text-sm text-accent-400 hover:underline no-underline">
+      ◀ 回到 Blog
+    </a>
+
+    <h1 class="mt-6 text-4xl font-bold text-white">示例文章标题</h1>
+
+    <p class="text-sm text-neutral-500 mt-2">
+      2026-10-12 · 阅读约 3 min · <span class="text-accent-400">示例标签</span>
+    </p>
+
+    <div class="mt-8 prose prose-invert prose-neutral max-w-none">
+      <p>
+        这是一篇示例文章。当你写第一篇真正的文章时，这一篇会被替换。
+        下面的内容用来验证 Markdown 渲染效果（深色主题下）。
+      </p>
+
+      <h2>加粗、斜体、行内代码</h2>
+      <p>
+        这是 <strong>加粗</strong>、<em>斜体</em>、<code>行内代码</code>
+        的示例。
+      </p>
+
+      <h2>列表示例</h2>
+      <ul>
+        <li>列表项一</li>
+        <li>列表项二</li>
+        <li>列表项三</li>
+      </ul>
+
+      <h2>代码块</h2>
+      <pre><code>const x = 'hello';
+console.log(x);</code></pre>
+
+      <h2>引用</h2>
+      <blockquote>
+        这是一段引用文字，用来强调一段观点或摘录别人的话。
+      </blockquote>
+    </div>
+  </article>
+</BaseLayout>

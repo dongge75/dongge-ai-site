@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  desc: string;
+  tag?: string;
+  href?: string;
+  emoji?: string;
+}
+
+const { title, desc, tag, href = '#', emoji = '🛠️' } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group block rounded-xl border border-neutral-800 bg-neutral-900 p-6 hover:border-accent-500/60 hover:bg-neutral-800/60 hover:shadow-lg hover:shadow-accent-500/10 transition"
+>
+  <div class="text-3xl mb-4">{emoji}</div>
+  <div class="flex items-center gap-2 mb-2 flex-wrap">
+    <h3 class="font-semibold text-neutral-100 group-hover:text-accent-400 transition">
+      {title}
+    </h3>
+    {tag && (
+      <span class="text-xs px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">
+        {tag}
+      </span>
+    )}
+  </div>
+  <p class="text-sm text-neutral-400 leading-relaxed">{desc}</p>
+  <div class="mt-4 text-sm text-accent-400 opacity-0 group-hover:opacity-100 transition">
+    ▸ 查看
+  </div>
+</a>

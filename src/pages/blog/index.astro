@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const posts = [
+  {
+    title: '从 0 到 1：搭建个人一站式平台',
+    desc: '花了三天时间，踩了这些坑...',
+    date: '2026-10-12',
+    source: '博客',
+    href: '/blog/sample',
+  },
+  {
+    title: '用 RSSHub 同步公众号到个人站',
+    desc: '让公众号文章自动出现在你的个人站',
+    date: '2026-10-05',
+    source: '教程',
+    href: '/blog/sample',
+  },
+  {
+    title: 'AI 副业起步指南',
+    desc: '一个人如何用 AI 工具撬动副业',
+    date: '2026-09-28',
+    source: '公众号',
+    href: '/blog/sample',
+  },
+  {
+    title: '用 AI 重构客服工作流',
+    desc: '从每天回复 200 条消息到解放双手',
+    date: '2026-09-15',
+    source: '公众号',
+    href: '/blog/sample',
+  },
+  {
+    title: 'OPC 创业者必备的 5 个 AI 工具',
+    desc: '一个人 = 一家公司，这些工具让你事半功倍',
+    date: '2026-09-02',
+    source: '公众号',
+    href: '/blog/sample',
+  },
+];
+---
+
+<BaseLayout title="博客" description="长文、随笔与思考">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-white">Blog · 博客</h1>
+      <p class="mt-4 text-lg text-neutral-400">长文、随笔与思考</p>
+    </header>
+
+    <div class="space-y-4">
+      {posts.map((p) => <ArticleCard {...p} />)}
+    </div>
+
+    <p class="mt-12 text-sm text-neutral-500 text-center">
+      共 {posts.length} 篇 · 后期接入 RSSHub 自动同步后会持续增长
+    </p>
+  </section>
+</BaseLayout>

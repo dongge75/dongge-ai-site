@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: '东歌智能客服',
+    desc: '面向淘宝/拼多多商家的 AI 自动回复工具，减少 80% 客服人力',
+    tag: 'AI Agent',
+    emoji: '🤖',
+  },
+  {
+    title: '东歌选品助手',
+    desc: '基于历史销量数据，智能推荐下一个潜在爆款商品',
+    tag: '电商',
+    emoji: '📊',
+  },
+  {
+    title: '东歌 AI 副业笔记',
+    desc: '记录我用 AI 工具做副业的全过程与方法论',
+    tag: '知识库',
+    emoji: '📝',
+  },
+  {
+    title: '电商评论区分析',
+    desc: '批量抓取 + AI 情感分析，洞察用户真实痛点',
+    tag: '数据分析',
+    emoji: '💬',
+  },
+  {
+    title: '公众号排版工具',
+    desc: '把 MD 变成公众号可直接粘贴的富文本',
+    tag: '工具',
+    emoji: '🛠️',
+  },
+  {
+    title: '项目孵化中 · 占位',
+    desc: '敬请期待，下一个工具/产品即将揭晓',
+    tag: '占位',
+    emoji: '🚧',
+  },
+];
+---
+
+<BaseLayout title="作品" description="我做过的、正在做的项目">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <header class="mb-12">
+      <h1 class="text-4xl font-bold text-white">Projects · 作品</h1>
+      <p class="mt-4 text-lg text-neutral-400">
+        我做过的 / 正在做的 / 计划要做的项目
+      </p>
+    </header>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((p) => <ProjectCard {...p} href="#" />)}
+    </div>
+
+    <p class="mt-12 text-sm text-neutral-500 text-center">
+      共 {projects.length} 个项目 · 详情页开发中
+    </p>
+  </section>
+</BaseLayout>

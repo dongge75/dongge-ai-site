@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolCard from '../../components/ToolCard.astro';
+
+const tools = [
+  {
+    title: 'MD 转公众号',
+    desc: '粘贴 Markdown，一键复制公众号富文本',
+    emoji: '📝',
+    href: '/tools/md2wechat',
+    ready: true,
+  },
+  {
+    title: '封面图生成',
+    desc: '标题 + 模板，一键导出公众号封面 PNG',
+    emoji: '🎨',
+    href: '/tools/cover',
+    ready: false,
+  },
+  {
+    title: '配色卡生成',
+    desc: '输入主色，导出 5 色调色板（CSS / JSON）',
+    emoji: '🎨',
+    href: '/tools/palette',
+    ready: false,
+  },
+  {
+    title: '番茄钟',
+    desc: '25 分钟专注 + 5 分钟休息',
+    emoji: '⏰',
+    href: '/tools/pomodoro',
+    ready: false,
+  },
+  {
+    title: 'JSON 格式化',
+    desc: '在线格式化、压缩、Diff 对比',
+    emoji: '🛠️',
+    href: '/tools/json',
+    ready: false,
+  },
+  {
+    title: '时间戳转换',
+    desc: '秒/毫秒 ↔ 日期 双向转换',
+    emoji: '🛠️',
+    href: '/tools/timestamp',
+    ready: false,
+  },
+  {
+    title: 'BMI 计算器',
+    desc: '快速评估体重状态（带合理区间建议）',
+    emoji: '📊',
+    href: '/tools/bmi',
+    ready: false,
+  },
+  {
+    title: '二维码生成',
+    desc: '输入文本/链接，生成可下载的二维码',
+    emoji: '🔗',
+    href: '/tools/qrcode',
+    ready: false,
+  },
+  {
+    title: '正在策划中',
+    desc: '你有想做的工具吗？在公众号后台告诉我',
+    emoji: '💡',
+    href: '/tools/sample',
+    ready: false,
+  },
+];
+
+const categories = ['全部', '内容创作', '效率', '编程', '生活'];
+---
+
+<BaseLayout
+  title="工具集"
+  description="一组我自研的、能解决具体问题的小工具"
+>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold text-white">Tools · 工具集</h1>
+      <p class="mt-4 text-lg text-neutral-400">
+        一组我自研的、能解决具体问题的小工具。无需登录，浏览器内即开即用。
+      </p>
+    </header>
+
+    <div class="mb-10 flex flex-wrap gap-2">
+      {categories.map((c, i) => (
+        <button
+          class:list={[
+            'px-3 py-1 text-sm rounded-full border transition',
+            i === 0
+              ? 'bg-accent-500 text-neutral-950 border-accent-500'
+              : 'border-neutral-700 text-neutral-400 hover:border-accent-500 hover:text-accent-400',
+          ]}
+        >
+          {c}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {tools.map((t) => <ToolCard {...t} />)}
+    </div>
+
+    <p class="mt-12 text-sm text-neutral-500 text-center">
+      共 {tools.length} 个工具 · 持续更新中
+    </p>
+  </section>
+</BaseLayout>

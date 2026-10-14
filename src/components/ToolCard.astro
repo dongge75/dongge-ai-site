@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  desc: string;
+  href: string;
+  emoji: string;
+  ready?: boolean;
+}
+
+const { title, desc, href, emoji, ready = true } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    'group relative block rounded-xl border bg-neutral-900 p-6 transition',
+    ready
+      ? 'border-neutral-800 hover:border-accent-500/60 hover:bg-neutral-800/60 hover:shadow-lg hover:shadow-accent-500/10'
+      : 'border-dashed border-neutral-800 opacity-50',
+  ]}
+>
+  <div class="text-3xl mb-3">{emoji}</div>
+  <h3
+    class:list={[
+      'font-semibold transition',
+      ready ? 'text-neutral-100 group-hover:text-accent-400' : 'text-neutral-500',
+    ]}
+  >
+    {title}
+  </h3>
+  <p class="mt-1 text-sm text-neutral-400 leading-relaxed">{desc}</p>
+  {!ready && (
+    <span class="absolute top-3 right-3 text-xs px-2 py-0.5 bg-neutral-800 text-neutral-500 rounded">
+      敬请期待
+    </span>
+  )}
+  {ready && (
+    <div class="mt-4 text-sm text-accent-400 opacity-0 group-hover:opacity-100 transition">
+      ▸ 打开
+    </div>
+  )}
+</a>

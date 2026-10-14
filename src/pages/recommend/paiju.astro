@@ -1,0 +1,1316 @@
+---
+/*
+  /recommend/paiju · 完全复刻 whenreset.dev/scys 的设计系统
+  内容是"我推荐 AI 破局俱乐部"，不假冒品牌
+*/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="我推荐 AI 破局俱乐部 · 东歌1"
+  description="来自东歌1 的真实推荐。AI 时代，先学先赢。"
+  standalone={true}
+>
+  <style is:global>
+    /* ============================================================
+       全局 - 完全复刻 whenreset.dev/scys 的设计 token
+       ============================================================ */
+    body {
+      color: #173f35;
+      background: #f7f8f1;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .site * { box-sizing: border-box; }
+    .site a { color: inherit; text-decoration: none; }
+    .site h1, .site h2, .site h3, .site p { margin: 0; }
+    .site h1, .site h2, .site h3 {
+      letter-spacing: -0.045em;
+      color: inherit;
+      font-family: inherit;
+    }
+    .site h2 { font-size: 36px; font-weight: 650; line-height: 1.35; }
+    .site h3 { font-size: 20px; font-weight: 650; line-height: 1.5; }
+    .site p { color: #65716a; }
+  </style>
+
+  <style>
+    /* ============================================================
+       工具类 - 复刻原站点的视觉细节
+       ============================================================ */
+    .eyebrow {
+      letter-spacing: 0.12em;
+      color: #007e6c;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      font-size: 11px;
+      font-weight: 650;
+      display: flex;
+    }
+    .eyebrow > span {
+      background: #00a282;
+      border-radius: 50%;
+      width: 7px;
+      height: 7px;
+      display: inline-block;
+    }
+
+    .primary {
+      background: #007e6c;
+      color: #fff;
+      border-radius: 4px;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-height: 48px;
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      transition: background 0.15s;
+      display: inline-flex;
+    }
+    .primary:hover { background: #005e50; }
+
+    .textLink {
+      border-bottom: 1px solid #8ca99b;
+      align-items: center;
+      gap: 6px;
+      padding-bottom: 3px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+    }
+
+    /* ============================================================
+       HEADER - 导航
+       ============================================================ */
+    .siteHeader {
+      border-bottom: 1px solid #dce2d6;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      max-width: 1232px;
+      min-height: 100px;
+      margin: 0 auto;
+      padding: 23px 40px;
+      display: flex;
+    }
+    .brand {
+      letter-spacing: -0.03em;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 650;
+      display: flex;
+    }
+    .brandMark {
+      color: #fff;
+      background: #007e6c;
+      border-radius: 50%;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      font-size: 26px;
+      font-weight: 600;
+      display: grid;
+    }
+    .brand small {
+      letter-spacing: 0.18em;
+      color: #65716a;
+      font-size: 10px;
+      font-weight: 450;
+      display: block;
+    }
+    .headerNav {
+      align-items: center;
+      gap: 30px;
+      font-size: 13px;
+      display: flex;
+    }
+    .navCta {
+      border: 1px solid #aac4b5;
+      border-radius: 4px;
+      padding: 9px 15px;
+      font-weight: 600;
+      color: #173f35;
+    }
+
+    /* ============================================================
+       MAIN - 内容容器
+       ============================================================ */
+    .siteMain {
+      max-width: 1232px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ============================================================
+       HERO - 头部双列
+       ============================================================ */
+    .hero {
+      grid-template-columns: 1.25fr 1fr;
+      align-items: center;
+      gap: 64px;
+      padding: 83px 0 86px;
+      display: grid;
+    }
+    .heroLead {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #65716a;
+    }
+    .heroNote {
+      color: #778278;
+      margin-top: 24px;
+      font-size: 11px;
+    }
+
+    /* 英雄 - 体验卡视觉（复刻 og:image 主视觉）*/
+    .heroTrialCard {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1.45 / 1;
+      max-width: 480px;
+      margin: 0 auto;
+      border-radius: 14px;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at top right, rgba(255,255,255,0.7) 0%, transparent 65%),
+        radial-gradient(ellipse at center, #5fd8c4 0%, #36bfa9 55%, #1ea190 100%);
+      box-shadow:
+        0 30px 60px -20px rgba(0, 126, 108, 0.5),
+        0 0 0 1px rgba(255,255,255,0.4) inset;
+      color: #0a3d35;
+      transform: rotate(-2deg);
+      overflow: hidden;
+    }
+    .trialCardTop {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 18px;
+    }
+    .trialCardDays {
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: #0a3d35;
+    }
+    .trialCardDays small {
+      font-size: 22px;
+      font-weight: 500;
+      color: rgba(10,61,53,0.7);
+      margin-left: 6px;
+      letter-spacing: 0;
+    }
+    .trialCardLabel {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: #0a3d35;
+      margin: 28px 0 14px;
+    }
+    .trialCardSub {
+      font-size: 18px;
+      font-weight: 500;
+      color: rgba(10,61,53,0.78);
+      border-top: 2px solid rgba(10,61,53,0.5);
+      padding-top: 16px;
+      max-width: 80%;
+    }
+    .trialCardMark {
+      position: absolute;
+      bottom: -60px;
+      right: -30px;
+      font-size: 280px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.18);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ============================================================
+       SECTIONS - 通用段
+       ============================================================ */
+    .section {
+      padding: 80px 0;
+      border-top: 1px solid #dce2d6;
+    }
+    .sectionHead {
+      margin-bottom: 48px;
+      max-width: 720px;
+    }
+    .section#cases .sectionHead {
+      margin-bottom: 16px;
+    }
+    .sectionHead p {
+      margin-top: 18px;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    /* ============================================================
+       BENEFITS - 权益卡片
+       ============================================================ */
+    .benefitGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .benefitCard {
+      background: #fbfcf6;
+      border: 1px solid #dce2d6;
+      border-radius: 10px;
+      padding: 28px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .benefitCard:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px #007e6c1a;
+    }
+    .benefitIcon {
+      width: 44px;
+      height: 44px;
+      color: #007e6c;
+      background: #d9eee0;
+      border-radius: 12px;
+      place-items: center;
+      margin-bottom: 18px;
+      display: grid;
+      font-size: 22px;
+    }
+    .benefitLabel {
+      letter-spacing: 0.12em;
+      color: #007e6c;
+      font-size: 11px;
+      font-weight: 650;
+      margin-bottom: 6px;
+    }
+    .benefitCard h3 {
+      color: #173f35;
+      margin-bottom: 8px;
+    }
+    .benefitCard p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       JOIN - 加入区（含二维码）
+       ============================================================ */
+    .joinGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .joinHint {
+      color: #65716a;
+      font-size: 15px;
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .qrCard {
+      background: #fff;
+      border: 1px solid #dce2d6;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 16px 48px -20px rgba(23,63,53,0.18);
+    }
+    .qrCardImg {
+      width: 240px;
+      height: 240px;
+      margin: 0 auto 16px;
+      display: block;
+      border-radius: 8px;
+    }
+    .qrCardLabel {
+      color: #007e6c;
+      font-size: 12px;
+      font-weight: 650;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+    .qrCardNote {
+      color: #65716a;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* 移动端扫码长按提示 - 复刻陈木木踩坑修复版 */
+    .mobileHint {
+      margin-top: 16px;
+      padding: 12px;
+      background: #fbf3c8;
+      border: 1px solid #e8d97e;
+      border-radius: 8px;
+      color: #7a5c00;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+    .mobileHint strong { color: #5e4500; }
+
+    /* ============================================================
+       CASES - 案例
+       ============================================================ */
+    .caseGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .caseCard {
+      background: #fbfcf6;
+      border: 1px solid #dce2d6;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+    .caseCardTop {
+      color: #65716a;
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+    }
+    .caseCardMetric {
+      font-size: 30px;
+      font-weight: 700;
+      color: #007e6c;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .caseCardBody {
+      color: #173f35;
+      font-size: 14px;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .caseByline {
+      color: #65716a;
+      font-size: 11px;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #dce2d6;
+    }
+
+    /* ============================================================
+       CASES LIST - 10 条案例列表（仿生财 list 风格）
+       ============================================================ */
+    .caseList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .caseListItem {
+      display: grid;
+      grid-template-columns: 32px 40px 1fr 90px 110px;
+      align-items: center;
+      gap: 14px;
+      padding: 2px 16px;
+      background: #fbfcf6;
+      border: 1px solid #dce2d6;
+      border-radius: 8px;
+      transition: all 0.18s ease;
+    }
+    .caseListItem:hover {
+      border-color: #007e6c;
+      background: #fff;
+      transform: translateX(2px);
+      box-shadow: 0 4px 16px rgba(0, 126, 108, 0.08);
+    }
+    .caseListNum {
+      font-size: 15px;
+      font-weight: 700;
+      color: #007e6c;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+    .caseListAvatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+    .caseListMain {
+      min-width: 0;
+    }
+    .caseListTitle {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #173f35;
+      line-height: 1.4;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .caseListType {
+      font-size: 9px;
+      font-weight: 650;
+      letter-spacing: 0.1em;
+      padding: 1px 6px;
+      border-radius: 3px;
+      background: #d9eee0;
+      color: #007e6c;
+    }
+    .caseListMeta {
+      font-size: 10.5px;
+      color: #65716a;
+      margin-bottom: 2px;
+    }
+    .caseListDesc {
+      font-size: 11.5px;
+      color: #65716a;
+      line-height: 1.5;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    .caseListMetric {
+      text-align: center;
+    }
+    .caseListNumBig {
+      font-size: 17px;
+      font-weight: 700;
+      color: #007e6c;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .caseListLabel {
+      font-size: 9px;
+      color: #65716a;
+      letter-spacing: 0.08em;
+      margin-top: 1px;
+    }
+    .caseListRight {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .caseListTags {
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .caseListTag {
+      font-size: 9px;
+      padding: 1px 6px;
+      background: #f4f6ef;
+      color: #65716a;
+      border-radius: 8px;
+      border: 1px solid #dce2d6;
+    }
+    .caseListCta {
+      font-size: 11px;
+      color: #007e6c;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .caseListCta:hover { text-decoration: underline; }
+
+    .caseDisclaimer {
+      margin-top: 32px;
+      padding: 16px;
+      color: #65716a;
+      font-size: 11px;
+      line-height: 1.7;
+      border-left: 3px solid #dce2d6;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .siteFooter {
+      border-top: 1px solid #dce2d6;
+      padding: 32px 40px;
+      max-width: 1232px;
+      margin: 0 auto;
+      color: #65716a;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .siteFooter a { color: #007e6c; }
+
+    /* ============================================================
+       响应式
+       ============================================================ */
+    @media (max-width: 768px) {
+      .siteHeader { padding: 16px 20px; min-height: 64px; }
+      .siteMain { padding: 0 20px; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 48px 0;
+        gap: 40px;
+      }
+      .heroTrialCard {
+        max-width: 100%;
+        aspect-ratio: 1.4 / 1;
+        transform: rotate(-1deg);
+      }
+      .trialCardLabel { font-size: 48px; }
+      .trialCardDays { font-size: 44px; }
+      .trialCardMark { font-size: 180px; bottom: -40px; right: -20px; }
+      .section { padding: 56px 0; }
+      .joinGrid { grid-template-columns: 1fr; }
+      .qrCardImg { width: 200px; height: 200px; }
+      .siteFooter { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+      .caseListItem {
+        grid-template-columns: 28px 36px 1fr;
+        grid-template-rows: auto auto;
+        gap: 4px 10px;
+        padding: 2px 12px;
+      }
+      .caseListMetric {
+        grid-column: 2 / 4;
+        grid-row: 2;
+        text-align: left;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+      }
+      .caseListNumBig { font-size: 13px; }
+      .caseListLabel { font-size: 9px; }
+      .caseListRight {
+        grid-column: 3 / 4;
+        grid-row: 2;
+        align-items: flex-end;
+      }
+      .caseListAvatar { width: 32px; height: 32px; font-size: 13px; }
+      .caseListTitle { font-size: 13px; }
+      .caseListDesc { -webkit-line-clamp: 2; }
+    }
+
+    /* ============================================================
+       精华帖卡新结构（陈木木 8 字段）
+       ============================================================ */
+    .caseCardMeta {
+      font-size: 13px;
+      color: #65716a;
+      margin-top: -8px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+    .caseCardSection {
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #e2e7e0;
+    }
+    .caseCardSection:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .caseCardLabel {
+      font-size: 12px;
+      font-weight: 700;
+      color: #007e6c;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .caseCardText {
+      font-size: 14px;
+      color: #3a443d;
+      line-height: 1.7;
+    }
+    .caseCardText em {
+      color: #65716a;
+      font-style: italic;
+    }
+    .caseCardList {
+      margin: 0;
+      padding-left: 22px;
+      font-size: 14px;
+      color: #3a443d;
+      line-height: 1.8;
+    }
+    .caseCardList li {
+      margin-bottom: 4px;
+    }
+    .caseCardList li::marker {
+      color: #007e6c;
+      font-weight: 700;
+    }
+    .caseCardHint {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #f0f7f4;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #3a443d;
+      line-height: 1.7;
+    }
+    .caseCardQuote {
+      margin: 6px 0;
+      padding: 8px 14px;
+      background: #fbfcf6;
+      border-left: 3px solid #007e6c;
+      font-size: 14px;
+      font-style: italic;
+      color: #1c2820;
+      line-height: 1.6;
+    }
+    .caseCardFooter {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #e2e7e0;
+      font-size: 12px;
+      color: #65716a;
+      line-height: 1.8;
+    }
+    .caseCardPaywall {
+      margin-top: 8px;
+      padding: 10px 14px;
+      background: #fff8e1;
+      border-left: 3px solid #f0a000;
+      color: #5a4a2a;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       体验卡 CARD（长图裁成 2 块）
+       ============================================================ */
+    .cardSplit {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 640px;
+      margin: 0 auto 24px;
+    }
+    .cardPart {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #dce2d6;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 30, 25, 0.06);
+    }
+    .cardPart-top {
+      aspect-ratio: 100 / 70;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .cardPart-bottom {
+      aspect-ratio: 100 / 35;
+      object-fit: cover;
+      object-position: bottom center;
+    }
+    .cardTip {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      background: #fbfcf6;
+      border: 1px solid #dce2d6;
+      border-left: 4px solid #007e6c;
+      border-radius: 10px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #3a443d;
+    }
+    .cardTip strong {
+      color: #007e6c;
+      margin-right: 4px;
+    }
+
+    /* ============================================================
+       体验交流群 COMMUNITY
+       ============================================================ */
+    .communityGrid {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+    }
+    .communityCard {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 28px;
+      background: #fbfcf6;
+      border: 1px solid #dce2d6;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0, 30, 25, 0.04);
+    }
+    .communityQR {
+      width: 160px;
+      height: 160px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      background: #fff;
+      padding: 8px;
+      border: 1px solid #dce2d6;
+    }
+    .communityLabel {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1c2820;
+      margin-bottom: 10px;
+    }
+    .communityDesc {
+      font-size: 14px;
+      color: #65716a;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .cardPart-top { aspect-ratio: 100 / 70; }
+      .cardPart-bottom { aspect-ratio: 100 / 35; }
+      .communityCard { flex-direction: column; text-align: center; padding: 20px; }
+      .communityQR { width: 200px; height: 200px; }
+    }
+  </style>
+
+  <div class="site">
+
+    <!-- ============================================ -->
+    <!-- HEADER                                       -->
+    <!-- ============================================ -->
+    <header class="siteHeader">
+      <div class="brand">
+        <div class="brandMark">东</div>
+        <div>
+          <div>东歌AI</div>
+          <small>DONG GE AI · 个人推荐</small>
+        </div>
+      </div>
+      <nav class="headerNav">
+        <a href="#hero">推荐</a>
+        <a href="#cases">案例</a>
+        <a href="#card">领卡</a>
+        <a href="#community">交流群</a>
+        <a href="https://donggeai.com" class="navCta">主站 →</a>
+      </nav>
+    </header>
+
+    <main class="siteMain">
+
+      <!-- ============================================ -->
+      <!-- HERO · 主视觉（复刻 og:image 体验卡）         -->
+      <!-- ============================================ -->
+      <section id="hero" class="hero">
+        <div>
+          <div class="eyebrow">
+            <span></span>
+            本周推荐 · 个人真实使用 / 第 ④ 期
+          </div>
+          <h1 style="font-size: clamp(38px, 4.3vw, 59px); font-weight: 650; line-height: 1.24; margin-bottom: 25px;">
+            拥抱 AI，<br />
+            <span style="color: #007e6c;">用出先机。</span>
+          </h1>
+          <p class="heroLead">
+            51 岁，<strong>审计人</strong>。最近 <strong>1 年</strong>我把 AI 用进 <strong>公众号、视频号图书带货、AI 电商全链路创作</strong>三个方向。
+            其中对我帮助最大的社群，是 <strong>AI 破局俱乐部</strong>——知识星球活跃榜常驻 TOP1，累计 58,000+ 付费圈友。
+            <br /><br />
+            这一页是我挂的官方推荐入口——通过我扫码进去，俱乐部会知道是「东歌1」带来的。
+            现在扫码领 <strong>7 天免费体验 + 3 天新手实操课</strong>。
+          </p>
+          <div style="display: flex; gap: 22px; margin-top: 28px; flex-wrap: wrap; align-items: center;">
+            <a href="#join" class="primary">
+              立即扫码领取 →
+            </a>
+            <a href="#cases" class="textLink">先看 3 个真实案例 ↓</a>
+          </div>
+          <p class="heroNote">
+            *本页所有素材由 AI 破局俱乐部官方提供，文字版推荐仅经「东歌1」邀请生效。
+          </p>
+        </div>
+
+        <div>
+          <div class="heroTrialCard">
+            <div class="trialCardTop">
+              <span>7</span>
+              <span style="letter-spacing: 0.18em;">DONG GE · 1</span>
+            </div>
+            <div style="display: flex; align-items: baseline;">
+              <span class="trialCardDays">7</span>
+              <small>天</small>
+            </div>
+            <div class="trialCardLabel">体验卡</div>
+            <div class="trialCardSub">领取 7 天免费体验会员<br />解锁 1.5 亿字 AI 付费内容</div>
+            <div class="trialCardMark">¥</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- BENEFITS · 权益区                            -->
+      <!-- ============================================ -->
+      <section class="section" id="benefits">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>权益 / BENEFITS</div>
+          <h2>7 天免费解锁，破局全部付费内容</h2>
+          <p>
+            扫码后能直接看到：2000+ 实战精华帖、200+ 行动营教程、1500+ 大佬实战复盘、每日 10+ AI 风向标情报。
+            额外赠送 3 天 AI 新手实操课程。
+          </p>
+        </div>
+
+        <div class="benefitGrid">
+          <div class="benefitCard">
+            <div class="benefitIcon">🎯</div>
+            <div class="benefitLabel">AI 项目助手</div>
+            <h3>100+ 项目风口</h3>
+            <p>定位赛道：从流量、产品、变现三个维度帮你看 AI 时代有什么项目能跑。</p>
+          </div>
+          <div class="benefitCard">
+            <div class="benefitIcon">📚</div>
+            <div class="benefitLabel">AI 内容社区</div>
+            <h3>2000+ 精华帖</h3>
+            <p>AI 赚钱百科式内容库，覆盖工具、流量、变现、私域、企业应用五大方向。</p>
+          </div>
+          <div class="benefitCard">
+            <div class="benefitIcon">🛠</div>
+            <div class="benefitLabel">AI 实战中心</div>
+            <h3>万字手册 + 400+ 直播课</h3>
+            <p>系统化课程 + 直播答疑，陪你把 AI 用透，不再只是「听说」。</p>
+          </div>
+          <div class="benefitCard">
+            <div class="benefitIcon">🤝</div>
+            <div class="benefitLabel">AI 人脉圈</div>
+            <h3>2000+ 线下组局</h3>
+            <p>和拿到结果的人面对面。一个号能换到的人脉，比自己摸索一年还多。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CASES · 案例区                                -->
+      <!-- ============================================ -->
+      <section class="section" id="cases">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>案例 / CASES</div>
+          <h2>普通人，真的赚到了</h2>
+          <p>下面 10 个真实案例：3 个圈友复盘 + 3 个破局精华帖 + 4 个 CLI 实战帖。点每条右侧"查看解读"可看到原文。</p>
+        </div>
+
+        <ol class="caseList">
+          <li id="case-01" class="caseListItem">
+            <span class="caseListNum">01</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #fde68a, #f59e0b);">妈</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">35岁二胎宝妈，靠AI带货单月收入20w+<span class="caseListType">圈友复盘</span></h3>
+              <div class="caseListMeta">圈友复盘 · AI 破局俱乐部</div>
+              <div class="caseListDesc">35 岁二胎宝妈，用 AI 工具批量产出带货内容，单月稳定 20W+ 收入。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">AI带货</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/erbao-mama-47w" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-02" class="caseListItem">
+            <span class="caseListNum">02</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #cffafe, #06b6d4);">袁</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">做 FDE，如何让老板交出关键信息：用情绪价值转动服务飞轮，带来转介绍<span class="caseListType">圈友复盘</span></h3>
+              <div class="caseListMeta">袁欣就是圆心 · AI 破局俱乐部 · 2026-10-14</div>
+              <div class="caseListDesc">5 个多月，累计服务 16 家企业，营收 50W+，客户基本全部来自转介绍。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">FDE</span>
+              <span class="caseListTag">转介绍</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/yuanxin-fde-50w" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-03" class="caseListItem">
+            <span class="caseListNum">03</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #fed7aa, #f97316);">王</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">企业 AI 项目交付完才是开始：我把第一单做成复购客户，靠的是交付后这 3 件事<span class="caseListType">圈友复盘</span></h3>
+              <div class="caseListMeta">王中阳讲Agent · AI 破局俱乐部 · 2026-10-14</div>
+              <div class="caseListDesc">杭州智航星辰 CEO，3 个月把第一单做成复购客户。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">企业AI</span>
+              <span class="caseListTag">复购</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/wangzhongyang-fukou" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-04" class="caseListItem">
+            <span class="caseListNum">04</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #d1fae5, #10b981);">西</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">越是聚焦，越有可能做出结果<span class="caseListType">精华帖</span></h3>
+              <div class="caseListMeta">西堂AI视频 · 破局精华帖 · 2026-10-13</div>
+              <div class="caseListDesc">实战派最近 1 年从"五个人做六件事"收到"围绕一个方向做深"，写下 3 条核心感悟：聚焦比铺开更容易拿到结果；0-1 之后必须升级到 1-10 思维。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">定位</span>
+              <span class="caseListTag">减法</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/xiting-jujiao" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-05" class="caseListItem">
+            <span class="caseListNum">05</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #cffafe, #06b6d4);">流</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">一种 90% 入池的爆款标题公式，一文讲透背后底层逻辑<span class="caseListType">精华帖</span></h3>
+              <div class="caseListMeta">流月｜AIP 爆文教练 · 破局精华帖</div>
+              <div class="caseListDesc">把"过来人忠告型标题"总结成 4 个要点：句式带过来人感、抓大人群高频场景、要有强判断、用"熟悉的问题+不熟悉的答案"制造认知差。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">公众号</span>
+              <span class="caseListTag">标题</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/liuyue-biaoti" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-06" class="caseListItem">
+            <span class="caseListNum">06</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #fed7aa, #f97316);">米</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">不会写代码，我把 HR 的破事和副业的累活，都丢给 WorkBuddy 了<span class="caseListType">精华帖</span></h3>
+              <div class="caseListMeta">米一 · 破局精华帖</div>
+              <div class="caseListDesc">完全不会写代码的小白，参加了破局 WorkBuddy 铸造行动营后，把公司的 HR 破事和副业的累活全部交给 WorkBuddy 处理。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">工具</span>
+              <span class="caseListTag">WorkBuddy</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/miyi-workbuddy" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-07" class="caseListItem">
+            <span class="caseListNum">07</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #dbeafe, #3b82f6);">S</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">不会前端，我用 AI 做出了一个AI破局体验卡领取网站：试玉<span class="caseListType">CLI 实战</span></h3>
+              <div class="caseListMeta">smarts · 破局 CLI 实战派</div>
+              <div class="caseListDesc">整站 = 3 文件零依赖零构建（index.html 50 行 + style.css 250 行 + app.js 707 行），一周上线，零成本。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">CLI</span>
+              <span class="caseListTag">网站</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/smarts-shiyu" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-08" class="caseListItem">
+            <span class="caseListNum">08</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #fde68a, #f59e0b);">西</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">如何快速入门一个完全不懂的领域？我现在都用破局CLI，小白照着做就行<span class="caseListType">CLI 实战</span></h3>
+              <div class="caseListMeta">西昂 · 破局 CLI 实战派</div>
+              <div class="caseListDesc">4 步法：CLI 抓 SOP 手册 → 找高手 → 搜行动手册 → 帖子补充。每步配可复制提示词。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">CLI</span>
+              <span class="caseListTag">SOP</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/xiang-xiaobai" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-09" class="caseListItem">
+            <span class="caseListNum">09</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #fce7f3, #ec4899);">福</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">每天只有1.5小时：三娃宝妈如何用破局CLI，把圈友经验变成自己的能力<span class="caseListType">CLI 实战</span></h3>
+              <div class="caseListMeta">福多多 · 三娃宝妈 · 破局 CLI 实战派</div>
+              <div class="caseListDesc">6 步法：找起点相近的实战帖 → 拆解 → 执行 → 反馈 → 修改 → 验证。每天 1.5 小时也能用。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">CLI</span>
+              <span class="caseListTag">时间管理</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/fuduo-1-5h" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+
+          <li id="case-10" class="caseListItem">
+            <span class="caseListNum">10</span>
+            <div class="caseListAvatar" style="background: linear-gradient(135deg, #d1fae5, #10b981);">可</div>
+            <div class="caseListMain">
+              <h3 class="caseListTitle">70 后大叔用破局CLI 解决资料官复盘 + 公众号选题<span class="caseListType">CLI 实战</span></h3>
+              <div class="caseListMeta">可人 · 70 后 · 破局星火师 · 12 期带货营资料官</div>
+              <div class="caseListDesc">12 期 AI 全域带货营资料官，用 CLI 解决两件具体的体力活：资料官复盘 + 公众号选题。适用又简单。</div>
+            </div>
+            <div class="caseListTags">
+              <span class="caseListTag">CLI</span>
+              <span class="caseListTag">公众号</span>
+            </div>
+            <div class="caseListRight">
+              <a href="/recommend/paiju/case/keren-70hou" class="caseListCta">查看解读 →</a>
+            </div>
+          </li>
+        </ol>
+
+        <div class="caseDisclaimer">
+          * 上面 3 个圈友复盘数字来源于 AI 破局俱乐部官方公开的圈友复盘内容，不构成收益承诺。
+          下面 7 条（3 张精华帖 + 4 个 CLI 实战帖）由"东歌1"按陈木木 4 块结构方法亲自整理，原帖版权归原作者。
+          不同人、不同项目、不同投入会有差异，结果因人而异。
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- TOOLKIT · 我目前在用的 AI 工具                  -->
+      <!-- ============================================ -->
+      <section class="section" id="toolkit">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>工具栈 / MY AI TOOLKIT</div>
+          <h2>我目前在用的 AI 工具</h2>
+          <p>
+            51 岁，审计人。我用 AI 不是为了炫技，是为了<strong>省时间</strong>——
+            写审计小工具、拆解对标文案、做视频号图书带货、写公众号。
+            下面 4 张卡片是我每天在用的组合，<strong>每张都可以展开写成一篇教程</strong>。
+          </p>
+        </div>
+
+        <div class="benefitGrid">
+          <div class="benefitCard">
+            <div class="benefitIcon">💻</div>
+            <div class="benefitLabel">写代码</div>
+            <h3>Claude Code / Codex / WorkBuddy</h3>
+            <p>写审计过程小工具：底稿生成、抽样脚本、Excel 自动化、报告模板。51 岁也能写代码，关键是 AI 帮我跨过语法门槛。</p>
+          </div>
+          <div class="benefitCard">
+            <div class="benefitIcon">📝</div>
+            <div class="benefitLabel">写文案</div>
+            <h3>ChatGPT / Claude Code</h3>
+            <p>拆解对标公众号 / 小红书 / X 文案：提炼结构、金句、情绪节奏。我公众号 100+ 篇的选题和初稿都从这里来。</p>
+          </div>
+          <div class="benefitCard">
+            <div class="benefitIcon">📚</div>
+            <div class="benefitLabel">做带货</div>
+            <h3>ChatGPT / WorkBuddy</h3>
+            <p>视频号图书带货：选品分析、口播稿、剪辑、发布、数据复盘。AI 让我一个人就是一个带货团队。</p>
+          </div>
+          <div class="benefitCard">
+            <div class="benefitIcon">📖</div>
+            <div class="benefitLabel">写公众号</div>
+            <h3>Obsidian / 飞书 / Claude Code</h3>
+            <p>100+ 篇原创：选题、写作、润色、排版、发布全流程。Obsidian 管知识库，飞书管协作，Claude Code 管润色。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- OFFICIAL · 我用过的破局官方产品                -->
+      <!-- ============================================ -->
+      <section class="section" id="official">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>官方产品 / OFFICIAL</div>
+          <h2>我常用的破局官方资源</h2>
+          <p>除了 7 天体验，俱乐部自己还有 2 个长期可用的产品，都是我自己日常在用。</p>
+        </div>
+
+        <div class="caseGrid">
+          <a href="https://aipoju.com/skill-store" target="_blank" rel="noopener noreferrer" class="caseCard" style="text-decoration: none; color: inherit; display: block;">
+            <div class="caseCardTop">SKILL 01 · 破局 Skill 商城</div>
+            <div class="caseCardMetric">aipoju.com<span style="font-size:14px; color:#65716a; font-weight:500; margin-left:4px;">/skill-store</span></div>
+            <div class="caseCardBody">
+              破局官方技能商城 · 模板、智能体、工作流，公众号选题、电商选品我都在这里抄作业。
+            </div>
+            <div class="caseByline">立即逛逛 →</div>
+          </a>
+
+          <a href="https://aipoju.com/cli" target="_blank" rel="noopener noreferrer" class="caseCard" style="text-decoration: none; color: inherit; display: block;">
+            <div class="caseCardTop">SKILL 02 · 破局 CLI</div>
+            <div class="caseCardMetric">aipoju.com<span style="font-size:14px; color:#65716a; font-weight:500; margin-left:4px;">/cli</span></div>
+            <div class="caseCardBody">
+              命令行工具 · 接入破局生态，技能 / 智能体一唤即用，写代码时直接调用，比切网页快。
+            </div>
+            <div class="caseByline">立即体验 →</div>
+          </a>
+        </div>
+
+        <div class="caseDisclaimer">
+          * 以上 2 个产品由 AI 破局俱乐部官方提供，与 donggeai.com 互不冲突，可独立使用。
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CARD · 体验卡（长图裁成 2 块）                  -->
+      <!-- ============================================ -->
+      <section class="section" id="card">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>体验卡 / CARD</div>
+          <h2>免费领 7 天体验会员</h2>
+          <p>官方一整张长图被裁成 2 块——上方是品牌视觉、下方是头像+二维码，方便你扫码。</p>
+        </div>
+
+        <div class="cardSplit">
+          <img
+            src="/images/paiju/邀请卡-01.png"
+            class="cardPart cardPart-top"
+            alt="AI 破局俱乐部 - 品牌视觉"
+          />
+          <img
+            src="/images/paiju/邀请卡-01.png"
+            class="cardPart cardPart-bottom"
+            alt="东哥1 邀请卡 - 头像+二维码"
+          />
+        </div>
+
+        <div class="cardTip">
+          <span style="font-size: 20px; margin-right: 8px;">📱</span>
+          <strong>手机端扫码提示：</strong>
+          长按上面的邀请卡保存图片，打开微信「扫一扫」，从相册选这张图即可添加。
+          电脑上直接用微信扫码即可。
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- COMMUNITY · 体验交流群                          -->
+      <!-- ============================================ -->
+      <section class="section" id="community">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>交流群 / COMMUNITY</div>
+          <h2>领了体验卡，加群继续聊</h2>
+        </div>
+
+        <div class="communityGrid">
+          <div class="communityCard">
+            <img src="/images/paiju/qr.png" class="communityQR" alt="体验交流群二维码" />
+            <div class="communityMeta">
+              <div class="communityLabel">东哥1 · 体验交流群</div>
+              <div class="communityDesc">
+                领完体验卡，扫码进群一起聊<br />
+                遇到问题、想看更多精华解读，都在群里
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- JOIN · 加入区（含二维码）                      -->
+      <!-- ============================================ -->
+      <section class="section" id="join">
+        <div class="sectionHead">
+          <div class="eyebrow"><span></span>加入 / JOIN</div>
+          <h2>扫码领取 7 天体验会员</h2>
+          <p class="joinHint">
+            二维码会识别「东歌1」的推荐身份。扫码后会自动发体验卡，按提示即可领取全部权益。
+            <br /><br />
+            使用中遇到任何问题，可以加我微信一起聊聊。
+          </p>
+        </div>
+
+        <div class="joinGrid">
+          <div>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <a href="#" class="primary" style="text-align: center;">
+                先加我微信领专属通道 →
+              </a>
+              <a href="#cases" class="textLink" style="align-self: flex-start;">
+                ↑ 还在犹豫？先看 3 个真实案例
+              </a>
+            </div>
+
+            <div style="margin-top: 32px; padding: 20px; background: #fbfcf6; border: 1px solid #dce2d6; border-radius: 10px;">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #007e6c, #00a282); color: #fff; display: grid; place-items: center; font-weight: 700;">东</div>
+                <div>
+                  <div style="font-weight: 650; color: #173f35; font-size: 15px;">东歌1</div>
+                  <div style="font-size: 11px; color: #007e6c; font-weight: 600; letter-spacing: 0.04em; margin-top: 2px;">
+                    AI 副业实战派
+                  </div>
+                </div>
+              </div>
+              <div style="font-size: 11px; color: #65716a; letter-spacing: 0.04em; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #dce2d6;">
+                51 岁审计人 · 20+ 年审计 · 100+ 篇 AI 原创
+              </div>
+              <p style="font-size: 13px; line-height: 1.8;">
+                「我做审计 20 多年，最近 2 年用 AI 写了 100 多篇公众号、做视频号图书带货、搭了 AI 电商全链路创作平台。
+                没人带容易绕弯路，我把走通的路整理在这里，希望帮你少走点弯路。」
+              </p>
+            </div>
+          </div>
+
+          <div class="qrCard">
+            <div class="qrCardLabel">扫码领取 · 东歌1 邀请</div>
+            <img
+              src="/images/paiju/qr.png"
+              alt="AI 破局俱乐部 二维码"
+              class="qrCardImg"
+            />
+            <div class="qrCardNote">
+              长按二维码 → 保存到相册 → 打开微信扫一扫 → 从相册选图
+            </div>
+
+            <div class="mobileHint">
+              <strong>📱 移动端请这样操作：</strong>
+              <br />
+              1. 长按上方二维码图片，保存到手机相册
+              <br />
+              2. 打开微信「扫一扫」
+              <br />
+              3. 点右上角相册图标，从相册选刚才保存的图
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FOOTER                                       -->
+    <!-- ============================================ -->
+    <footer class="siteFooter">
+      <div>
+        © 2026 东歌AI · 东哥1 个人推荐页<br />
+        <span style="font-size: 10px;">本页为个人推荐页，非 AI 破局俱乐部官方网站。所有产品数据、案例材料、品牌 LOGO 均由 AI 破局俱乐部 (findyi 团队) 官方提供。</span>
+      </div>
+      <div style="display: flex; gap: 24px;">
+        <a href="#hero">返回顶部 ↑</a>
+        <a href="https://donggeai.com">donggeai.com →</a>
+      </div>
+    </footer>
+
+  </div>
+</BaseLayout>
