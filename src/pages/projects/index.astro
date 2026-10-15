@@ -43,19 +43,19 @@ const projects = [
 ---
 
 <BaseLayout title="作品" description="我做过的、正在做的项目">
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-    <header class="mb-12">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <header class="mb-6">
       <h1 class="text-4xl font-bold text-white">Projects · 作品</h1>
-      <p class="mt-4 text-lg text-neutral-400">
+      <p class="mt-2 text-lg text-neutral-400">
         我做过的 / 正在做的 / 计划要做的项目
       </p>
     </header>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
       {projects.map((p) => <ProjectCard {...p} />)}
     </div>
 
-    <p class="mt-12 text-sm text-neutral-500 text-center">
+    <p class="mt-6 text-sm text-neutral-500 text-center">
       共 {projects.length} 个项目 · 详情页开发中
     </p>
   </section>

@@ -28,17 +28,17 @@ const posts = [
 ---
 
 <BaseLayout title="博客" description="长文、随笔与思考">
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
-    <header class="mb-12">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <header class="mb-6">
       <h1 class="text-4xl font-bold text-white">Blog · 博客</h1>
-      <p class="mt-4 text-lg text-neutral-400">长文、随笔与思考</p>
+      <p class="mt-2 text-lg text-neutral-400">长文、随笔与思考</p>
     </header>
 
-    <div class="space-y-4">
+    <div class="space-y-2">
       {posts.map((p) => <ArticleCard {...p} />)}
     </div>
 
-    <div class="mt-12 rounded-xl border border-dashed border-neutral-800 bg-neutral-900/30 p-6 text-center">
+    <div class="mt-6 rounded-xl border border-dashed border-neutral-800 bg-neutral-900/30 p-6 text-center">
       <p class="text-sm text-neutral-500">
         📝 更多文章在公众号「东哥副业笔记」持续更新 · 本站稍后接入 RSSHub 自动同步
       </p>
