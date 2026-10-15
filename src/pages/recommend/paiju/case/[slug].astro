@@ -166,6 +166,14 @@ const pageTitle = `${c.title} · 破局推荐页`;
     font-style: normal;
   }
 
+  /* 成绩板：2 条并列横排（节省空间，2026-10-15 东哥立） */
+  .caseSection--metric .caseSectionBody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: baseline;
+  }
+
   /* 问题清单 */
   .caseQuestionList {
     list-style: none;
@@ -334,9 +342,9 @@ const pageTitle = `${c.title} · 破局推荐页`;
 
   <!-- 1. 成绩板 -->
   {!待核 && (
-    <div class="caseSection">
+    <div class="caseSection caseSection--metric">
       <div class="caseSectionLabel">📈 成绩板</div>
-      <div class="caseSectionBody" set:html={c.full.成绩板.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/；/g, '<br/>')} />
+      <div class="caseSectionBody" set:html={c.full.成绩板.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')} />
     </div>
   )}
 
