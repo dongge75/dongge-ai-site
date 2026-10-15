@@ -336,7 +336,7 @@ const pageTitle = `${c.title} · 破局推荐页`;
   {!待核 && (
     <div class="caseSection">
       <div class="caseSectionLabel">📈 成绩板</div>
-      <div class="caseSectionBody" set:html={c.full.成绩板.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')} />
+      <div class="caseSectionBody" set:html={c.full.成绩板.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>').replace(/\n/g, '<br/>')} />
     </div>
   )}
 
@@ -344,7 +344,7 @@ const pageTitle = `${c.title} · 破局推荐页`;
   {!待核 && (
     <div class="caseSection">
       <div class="caseSectionLabel">📝 这篇讲了什么</div>
-      <div class="caseSectionBody" set:html={c.full.讲了什么.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+      <div class="caseSectionBody" set:html={c.full.讲了什么.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br/>')} />
     </div>
   )}
 
