@@ -287,12 +287,21 @@ const platforms = [
         <p class="mt-3 text-neutral-300 leading-relaxed">
           <strong class="text-accent-400">AI 副业实战派</strong>，帮普通人用 AI 写公众号、做带货、搭电商平台。
         </p>
-        <p class="mt-2 text-sm text-neutral-400 leading-relaxed">
-          51 岁 · 10 多年审计 · 最近 1 年写了 100+ 篇 AI 原创 · 同时跑公众号、视频号图书带货、AI 电商全链路 3 个方向。
+        <p class="mt-3 text-sm text-neutral-400">
+          📧{' '}
+          <a
+            href={`mailto:${SITE.email}`}
+            class="text-accent-400 hover:underline"
+          >
+            {SITE.email}
+          </a>
+          {' '}· 💬 微信公众号「{SITE.wechatOAName}」 · 🌐{' '}
+          <a href="/rss.xml" class="text-accent-400 hover:underline">RSS</a>
+          {' '}·{' '}
+          <a href="/about/" class="text-accent-400 hover:underline">
+            完整介绍 →
+          </a>
         </p>
-        <a href="/about/" class="mt-4 inline-block text-accent-400 hover:underline">
-          阅读完整介绍 →
-        </a>
       </div>
     </div>
   </section>
@@ -354,37 +363,5 @@ const platforms = [
     </div>
   </section>
 
-  <!-- 09 Contact -->
-  <section id="contact" class="bg-black border-y border-neutral-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-      <SectionLabel number="09" title="Contact · 联系" />
-      <div class="grid md:grid-cols-2 gap-4">
-        <div>
-          <p class="text-neutral-300 leading-relaxed">
-            合作 / 投稿 / 推荐 / 找上门来聊聊都可以通过下面任一方式联系我。
-            看到必回（深夜除外）。
-          </p>
-          <ul class="mt-6 space-y-3 text-sm">
-            <li>
-              📧{' '}
-              <a
-                href={`mailto:${SITE.email}`}
-                class="text-accent-400 hover:underline"
-              >
-                {SITE.email}
-              </a>
-            </li>
-            <li class="text-neutral-300">💬 微信：公众号「{SITE.wechatOAName}」后台回复</li>
-            <li>
-              🌐 本站 RSS：<a href="/rss.xml" class="text-accent-400 hover:underline">/rss.xml</a>
-            </li>
-          </ul>
-        </div>
-        <div class="rounded-xl border border-neutral-800 bg-neutral-950 p-4">
-          <p class="text-sm text-neutral-500">⏰ 可联系时间</p>
-          <p class="mt-1 text-neutral-100">工作日 9:00 – 22:00</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 09 Contact 已合并到 07 About（删除） -->
 </BaseLayout>
