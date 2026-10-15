@@ -18,6 +18,9 @@ const isCli = c.typeKey === 'cli';
 const isEssence = c.typeKey === 'essence';
 const isReview = c.typeKey === 'review';
 
+/** 2026-10-15 东哥立「不杜撰」铁律：没有原文的案例标 ⚠ 待核，不显示空白板块 */
+const 待核 = c.full.成绩板.startsWith('⚠ 待核');
+
 const pageTitle = `${c.title} · 破局推荐页`;
 ---
 
@@ -261,6 +264,31 @@ const pageTitle = `${c.title} · 破局推荐页`;
   }
   .caseCtaBtn-secondary:hover { background: #d9eee0; }
 
+  /* 待核状态横幅（2026-10-15 东哥立不杜撰铁律） */
+  .casePending {
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 24px 0 32px;
+    color: #78350f;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .casePendingTitle {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .casePendingList {
+    margin: 8px 0 0;
+    padding-left: 22px;
+    color: #92400e;
+  }
+
   @media (max-width: 768px) {
     .casePage { padding: 20px 20px 60px; }
     .caseHero {
@@ -305,30 +333,47 @@ const pageTitle = `${c.title} · 破局推荐页`;
   </div>
 
   <!-- 1. 成绩板 -->
-  <div class="caseSection">
-    <div class="caseSectionLabel">📈 成绩板</div>
-    <div class="caseSectionBody" set:html={c.full.成绩板.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')} />
-  </div>
+  {!待核 && (
+    <div class="caseSection">
+      <div class="caseSectionLabel">📈 成绩板</div>
+      <div class="caseSectionBody" set:html={c.full.成绩板.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')} />
+    </div>
+  )}
 
   <!-- 2. 这篇讲了什么 -->
-  <div class="caseSection">
-    <div class="caseSectionLabel">📝 这篇讲了什么</div>
-    <div class="caseSectionBody" set:html={c.full.讲了什么.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
-  </div>
+  {!待核 && (
+    <div class="caseSection">
+      <div class="caseSectionLabel">📝 这篇讲了什么</div>
+      <div class="caseSectionBody" set:html={c.full.讲了什么.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')} />
+    </div>
+  )}
 
   <!-- 3. 解决了什么问题 -->
-  <div class="caseSection">
-    <div class="caseSectionLabel">❓ 这篇帖子解决了什么问题</div>
-    <ul class="caseQuestionList">
-      {c.full.问题清单.map((q) => <li class="caseQuestionItem">{q}</li>)}
-    </ul>
-  </div>
+  {!待核 && c.full.问题清单.length > 0 && (
+    <div class="caseSection">
+      <div class="caseSectionLabel">❓ 这篇帖子解决了什么问题</div>
+      <ul class="caseQuestionList">
+        {c.full.问题清单.map((q) => <li class="caseQuestionItem">{q}</li>)}
+      </ul>
+    </div>
+  )}
 
   <!-- 4. 作者原话 -->
-  <div class="caseSection">
-    <div class="caseSectionLabel">💬 原作者原话</div>
-    {c.full.原话.map((qt) => <blockquote class="caseQuote">{qt}</blockquote>)}
-  </div>
+  {!待核 && c.full.原话.length > 0 && (
+    <div class="caseSection">
+      <div class="caseSectionLabel">💬 原作者原话</div>
+      {c.full.原话.map((qt) => <blockquote class="caseQuote">{qt}</blockquote>)}
+    </div>
+  )}
+
+  <!-- 待核状态横幅（无原文时显示） -->
+  {待核 && (
+    <div class="casePending">
+      <div class="casePendingTitle">⚠ 这条案例暂未提供原文</div>
+      <p>为遵守「不杜撰、不瞎编」原则（参考陈木木 4 块结构方法），这条案例的「成绩板 / 讲了什么 / 问题清单 / 原话」暂未填充。</p>
+      <p style="margin-top: 6px;">如果你有这篇的原文链接（飞书 / aipoju.com / 公众号），欢迎提供给我，我会按 4 块结构提炼后回填。</p>
+    </div>
+  )}
 
   <!-- 适用人群 -->
   <div class="caseAudience">
