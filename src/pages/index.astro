@@ -6,6 +6,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 import ToolCard from '../components/ToolCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import PlatformCard from '../components/PlatformCard.astro';
+import Button from '../components/Button.astro';
 import { SITE } from '../consts';
 
 const projects = [
@@ -14,45 +15,45 @@ const projects = [
     desc: '面向淘宝/拼多多商家的 AI 自动回复工具，减少 80% 客服人力',
     tag: 'AI Agent',
     emoji: '🤖',
-    href: '/projects',
+    href: '/projects/',
   },
   {
     title: '东歌选品助手',
     desc: '基于历史销量数据，智能推荐下一个潜在爆款商品',
     tag: '电商',
     emoji: '📊',
-    href: '/projects',
+    href: '/projects/',
   },
   {
     title: '东歌 AI 副业笔记',
     desc: '记录我用 AI 工具做副业的全过程与方法论',
     tag: '知识库',
     emoji: '📝',
-    href: '/blog',
+    href: '/blog/',
   },
 ];
 
 const articles = [
   {
+    title: '从 0 到 1：搭建个人一站式平台',
+    desc: '把公众号、视频号、自研工具统一到一个入口。这一篇讲架构和坑...',
+    date: '2026-10-12',
+    source: '博客',
+    href: '/blog/',
+  },
+  {
     title: '用 AI 重构客服工作流：从每日 200 条消息到解放双手',
     desc: '一年前我每天要回复上百条相似的问题，直到用 AI 把它们全部交给 Agent...',
     date: '2026-10-08',
     source: '公众号',
-    href: '/blog/sample',
+    href: '/blog/',
   },
   {
     title: 'OPC 创业者必备的 5 个 AI 工具',
     desc: '一个人 = 一家公司。这些 AI 工具让你事半功倍，把繁琐的事交给模型...',
     date: '2026-09-25',
     source: '公众号',
-    href: '/blog/sample',
-  },
-  {
-    title: '从 0 到 1：搭建个人一站式平台',
-    desc: '把公众号、视频号、自研工具统一到一个入口。这一篇讲架构和坑...',
-    date: '2026-10-12',
-    source: '博客',
-    href: '/blog/sample',
+    href: '/blog/',
   },
 ];
 
@@ -61,21 +62,21 @@ const tools = [
     title: 'MD 转公众号',
     desc: '粘贴 Markdown，一键复制公众号富文本',
     emoji: '📝',
-    href: '/tools/md2wechat',
+    href: '/tools/md2wechat/',
     ready: true,
   },
   {
     title: '封面图生成',
     desc: '标题 + 模板，一键导出公众号封面 PNG',
     emoji: '🎨',
-    href: '/tools/cover',
+    href: '/tools/cover/',
     ready: false,
   },
   {
     title: '配色卡生成',
     desc: '输入主色，导出 5 色调色板（CSS / JSON）',
     emoji: '🎨',
-    href: '/tools/palette',
+    href: '/tools/palette/',
     ready: false,
   },
 ];
@@ -92,7 +93,7 @@ const platforms = [
     gradient: 'green' as const,
   },
   {
-    href: '/recommend/paiju',
+    href: '/recommend/paiju/',
     url: 'donggeai.com/recommend/paiju',
     tag: 'AI 实用工具社群',
     title: 'AI 实用工具社群',
@@ -124,7 +125,6 @@ const platforms = [
           cta={p.cta}
           icon={p.icon}
           gradient={p.gradient}
-          screenshotNote="网站截图占位"
         />
       ))}
     </div>
@@ -223,20 +223,12 @@ const platforms = [
 
       <!-- 底部双 CTA -->
       <div class="mt-5 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <a
-          href="https://aipoju.com/cli"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-accent-500 text-neutral-950 rounded-lg text-base font-semibold hover:bg-accent-400 transition"
-        >
+        <Button href="https://aipoju.com/cli" variant="primary" size="md" external>
           立即体验破局 CLI →
-        </a>
-        <a
-          href="/recommend/paiju"
-          class="inline-flex items-center gap-2 px-6 py-3 border border-accent-500/40 text-accent-400 rounded-lg text-base font-medium hover:bg-accent-500/10 transition"
-        >
+        </Button>
+        <Button href="/recommend/paiju/" variant="secondary" size="md">
           看 7 篇圈友 CLI 复盘 →
-        </a>
+        </Button>
       </div>
     </div>
   </section>
@@ -244,7 +236,7 @@ const platforms = [
   <!-- 04 Selected Content -->
   <section id="content" class="bg-neutral-900/50 border-y border-neutral-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-      <SectionLabel number="03" title="Selected Content" />
+      <SectionLabel number="04" title="Selected Content" />
       <p class="text-neutral-500 -mt-6 mb-5 text-sm">
         聚合自「{SITE.wechatOAName}」与本站长文
       </p>
@@ -252,7 +244,7 @@ const platforms = [
         {articles.map((a) => <ArticleCard {...a} />)}
       </div>
       <div class="mt-5 text-center">
-        <a href="/blog" class="text-accent-400 hover:underline">更多文章 →</a>
+        <a href="/blog/" class="text-accent-400 hover:underline">更多文章 →</a>
       </div>
     </div>
   </section>
@@ -264,7 +256,7 @@ const platforms = [
       {projects.map((p) => <ProjectCard {...p} />)}
     </div>
     <div class="mt-5 text-center">
-      <a href="/projects" class="text-accent-400 hover:underline">所有作品 →</a>
+      <a href="/projects/" class="text-accent-400 hover:underline">所有作品 →</a>
     </div>
   </section>
 
@@ -276,7 +268,7 @@ const platforms = [
         {tools.map((t) => <ToolCard {...t} />)}
       </div>
       <div class="mt-5 text-center">
-        <a href="/tools" class="text-accent-400 hover:underline">所有工具 →</a>
+        <a href="/tools/" class="text-accent-400 hover:underline">所有工具 →</a>
       </div>
     </div>
   </section>
@@ -298,7 +290,7 @@ const platforms = [
         <p class="mt-2 text-sm text-neutral-400 leading-relaxed">
           51 岁 · 20+ 年审计 · 最近 1 年写了 100+ 篇 AI 原创 · 同时跑公众号、视频号图书带货、AI 电商全链路 3 个方向。
         </p>
-        <a href="/about" class="mt-4 inline-block text-accent-400 hover:underline">
+        <a href="/about/" class="mt-4 inline-block text-accent-400 hover:underline">
           阅读完整介绍 →
         </a>
       </div>
@@ -319,10 +311,9 @@ const platforms = [
           <div class="mt-4 aspect-square bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-500 text-sm border border-dashed border-neutral-700">
             <div class="text-center px-4">
               <div class="text-3xl mb-2">📱</div>
-              <div>二维码占位</div>
+              <div>微信二维码</div>
               <div class="text-xs mt-1 text-neutral-600">
-                把图片放到<br />
-                <code class="text-[10px]">public/images/wechat-qr.jpg</code>
+                图片就位后将显示在此
               </div>
             </div>
           </div>
@@ -380,10 +371,10 @@ const platforms = [
                 href={`mailto:${SITE.email}`}
                 class="text-accent-400 hover:underline"
               >
-                {SITE.email}
+                {SITE.emailDisplay}
               </a>
             </li>
-            <li class="text-neutral-300">💬 微信：公众号「SITE.wechatOAName」后台回复</li>
+            <li class="text-neutral-300">💬 微信：公众号「{SITE.wechatOAName}」后台回复</li>
             <li>
               🌐 本站 RSS：<a href="/rss.xml" class="text-accent-400 hover:underline">/rss.xml</a>
             </li>

@@ -1,0 +1,51 @@
+---
+// 统一按钮组件 · 全站只用这一个，避免散落的 inline class
+// 用法：<Button href="..." variant="primary" size="md">点击</Button>
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  external?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  external = false,
+  class: className = '',
+  ariaLabel,
+  ...rest
+} = Astro.props;
+
+const baseClass = 'inline-flex items-center gap-2 rounded-lg font-medium transition whitespace-nowrap';
+
+const variantClass: Record<string, string> = {
+  primary:
+    'bg-accent-500 text-neutral-950 hover:bg-accent-400 shadow-lg shadow-accent-500/30 font-semibold',
+  secondary:
+    'bg-neutral-900 border border-neutral-700 text-neutral-100 hover:border-accent-500 hover:text-accent-400',
+  ghost: 'text-accent-400 hover:underline px-0',
+};
+
+const sizeClass: Record<string, string> = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg',
+};
+
+const Tag = href ? 'a' : 'button';
+const externalAttrs = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<Tag
+  href={href}
+  class:list={[baseClass, variantClass[variant], sizeClass[size], className]}
+  aria-label={ariaLabel}
+  {...externalAttrs}
+  {...rest}
+>
+  <slot />
+</Tag>

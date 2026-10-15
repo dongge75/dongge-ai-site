@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 import { SITE } from '../consts';
 
 const timeline = [
@@ -11,7 +12,7 @@ const timeline = [
 const doingNow = [
   '维护「' + SITE.wechatOAName + '」公众号，记录 AI 工具实战',
   '运营 aishopdg.quantv.com —— AI 购物平台',
-  '参与 AI 破俱乐部（whenreset.dev/scys），与同行实战复盘',
+  '参与 AI 破局俱乐部（whenreset.dev/scys），与同行实战复盘',
   '做 1-2 个面向电商商家的 AI 小工具',
 ];
 ---
@@ -31,10 +32,8 @@ const doingNow = [
         <p class="mt-4 text-lg text-neutral-300 leading-relaxed">
           {SITE.tagline}
         </p>
-        <p class="mt-3 text-neutral-400 leading-relaxed">
-          〔150 字自我介绍待补充——你后续在
-          <code class="bg-neutral-900 px-1.5 py-0.5 rounded text-sm">src/content/about.md</code>
-          中改这一段〕
+        <p class="mt-3 text-neutral-300 leading-relaxed">
+          我是东歌，51 岁，20+ 年审计出身。一年前开始用 AI 重做所有事：写公众号、做视频号图书带货、运营 AI 电商平台。三个方向同时跑，工具栈是 Claude Code + WorkBuddy + ChatGPT——51 岁也能写出生产代码。这一站是入口：把我用 AI 工具的实战、复盘、踩坑都摊开来。如果你也是想用 AI 做点什么的普通人，从这里开始。
         </p>
       </div>
     </header>
@@ -61,11 +60,17 @@ const doingNow = [
     <section class="mt-12">
       <h2 class="text-xl font-semibold mb-4 text-white">联系</h2>
       <ul class="space-y-2 text-neutral-300">
-        <li>📧 <a href={`mailto:${SITE.email}`} class="text-accent-400 hover:underline">{SITE.email}</a></li>
+        <li>📧 <a href={`mailto:${SITE.email}`} class="text-accent-400 hover:underline">{SITE.emailDisplay}</a></li>
         <li>💬 微信公众号：{SITE.wechatOAName}</li>
         <li>🛒 AI 购物平台：<a href="https://aishopdg.quantv.com/" target="_blank" rel="noopener" class="text-accent-400 hover:underline">aishopdg.quantv.com</a></li>
-        <li>🚀 AI 破俱乐部：<a href="https://whenreset.dev/scys" target="_blank" rel="noopener" class="text-accent-400 hover:underline">whenreset.dev/scys</a></li>
+        <li>🚀 AI 破局俱乐部：<a href="https://whenreset.dev/scys" target="_blank" rel="noopener" class="text-accent-400 hover:underline">whenreset.dev/scys</a></li>
       </ul>
+
+      <div class="mt-8">
+        <Button href="/" variant="secondary" size="md">
+          ◀ 回到首页
+        </Button>
+      </div>
     </section>
   </article>
 </BaseLayout>

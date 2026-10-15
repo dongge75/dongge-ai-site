@@ -7,63 +7,63 @@ const tools = [
     title: 'MD 转公众号',
     desc: '粘贴 Markdown，一键复制公众号富文本',
     emoji: '📝',
-    href: '/tools/md2wechat',
+    href: '/tools/md2wechat/',
     ready: true,
   },
   {
     title: '封面图生成',
     desc: '标题 + 模板，一键导出公众号封面 PNG',
     emoji: '🎨',
-    href: '/tools/cover',
+    href: '/tools/cover/',
     ready: false,
   },
   {
     title: '配色卡生成',
     desc: '输入主色，导出 5 色调色板（CSS / JSON）',
     emoji: '🎨',
-    href: '/tools/palette',
+    href: '/tools/palette/',
     ready: false,
   },
   {
     title: '番茄钟',
     desc: '25 分钟专注 + 5 分钟休息',
     emoji: '⏰',
-    href: '/tools/pomodoro',
+    href: '/tools/pomodoro/',
     ready: false,
   },
   {
     title: 'JSON 格式化',
     desc: '在线格式化、压缩、Diff 对比',
     emoji: '🛠️',
-    href: '/tools/json',
+    href: '/tools/json/',
     ready: false,
   },
   {
     title: '时间戳转换',
     desc: '秒/毫秒 ↔ 日期 双向转换',
     emoji: '🛠️',
-    href: '/tools/timestamp',
+    href: '/tools/timestamp/',
     ready: false,
   },
   {
     title: 'BMI 计算器',
     desc: '快速评估体重状态（带合理区间建议）',
     emoji: '📊',
-    href: '/tools/bmi',
+    href: '/tools/bmi/',
     ready: false,
   },
   {
     title: '二维码生成',
     desc: '输入文本/链接，生成可下载的二维码',
     emoji: '🔗',
-    href: '/tools/qrcode',
+    href: '/tools/qrcode/',
     ready: false,
   },
   {
     title: '正在策划中',
     desc: '你有想做的工具吗？在公众号后台告诉我',
     emoji: '💡',
-    href: '/tools/sample',
+    href: '/tools/sample/',
     ready: false,
   },
 ];
@@ -103,7 +103,7 @@ const categories = ['全部', '内容创作', '效率', '编程', '生活'];
     </div>
 
     <p class="mt-12 text-sm text-neutral-500 text-center">
-      共 {tools.length} 个工具 · 持续更新中
+      共 {tools.filter((t) => t.ready).length} 个工具已上线 · {tools.filter((t) => !t.ready).length} 个规划中
     </p>
   </section>
 </BaseLayout>
