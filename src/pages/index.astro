@@ -278,32 +278,40 @@ const trainings = [
   <!-- 07 About -->
   <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 pb-5">
     <SectionLabel number="07" title="关于我" />
-    <div class="flex items-start gap-3 max-w-3xl">
-      <div
-        class="w-20 h-20 rounded-full bg-accent-400 flex-shrink-0 flex items-center justify-center text-2xl text-neutral-950 font-bold "
-      >
-        东
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:justify-between">
+      <div class="flex items-start gap-3 max-w-3xl flex-1">
+        <div
+          class="w-20 h-20 rounded-full bg-accent-400 flex-shrink-0 flex items-center justify-center text-2xl text-neutral-950 font-bold "
+        >
+          东
+        </div>
+        <div>
+          <h3 class="text-xl font-semibold text-white">你好，我是 东歌AI</h3>
+          <p class="mt-3 text-[#9ca3af] leading-relaxed">
+            <strong class="text-accent-400">AI 副业实战派</strong>，一个普通人用 AI 辅助主业和副业，用AI写公众号、做带货、搭电商平台、AI应用场景落地实操。
+          </p>
+          <p class="mt-3 text-sm text-[#9ca3af]">
+            📧{' '}
+            <a
+              href={`mailto:${SITE.email}`}
+              class="text-accent-400 hover:underline"
+            >
+              {SITE.email}
+            </a>
+            {' '}· 💬 微信公众号「{SITE.wechatOAName}」 · 🌐{' '}
+            <a href="/rss.xml" class="text-accent-400 hover:underline">RSS</a>
+            {' '}·{' '}
+            <a href="/about/" class="text-accent-400 hover:underline">
+              完整介绍 →
+            </a>
+          </p>
+        </div>
       </div>
-      <div>
-        <h3 class="text-xl font-semibold text-white">你好，我是 东歌AI</h3>
-        <p class="mt-3 text-[#9ca3af] leading-relaxed">
-          <strong class="text-accent-400">AI 副业实战派</strong>，帮普通人用 AI 写公众号、做带货、搭电商平台。
-        </p>
-        <p class="mt-3 text-sm text-[#9ca3af]">
-          📧{' '}
-          <a
-            href={`mailto:${SITE.email}`}
-            class="text-accent-400 hover:underline"
-          >
-            {SITE.email}
-          </a>
-          {' '}· 💬 微信公众号「{SITE.wechatOAName}」 · 🌐{' '}
-          <a href="/rss.xml" class="text-accent-400 hover:underline">RSS</a>
-          {' '}·{' '}
-          <a href="/about/" class="text-accent-400 hover:underline">
-            完整介绍 →
-          </a>
-        </p>
+      <div class="flex-shrink-0 flex flex-col items-center gap-2 self-center md:self-auto">
+        <div class="w-40 h-40 rounded-lg border border-[#222222] bg-[#151515] flex items-center justify-center text-[#6b7280] text-xs text-center px-2">
+          微信二维码<br />（待补）
+        </div>
+        <p class="text-xs text-[#6b7280]">扫码加微信</p>
       </div>
     </div>
   </section>
