@@ -1,0 +1,14 @@
+- [东歌AI 项目](dongge-ai-project.md) — 个人一站式平台项目，地址 D:\ObsidianVaults\024grwangye
+- [东歌AI 品牌](dongge-ai-brand.md) — 文案、配色、字体、公众号信息集中维护
+- [东歌AI 技术栈](dongge-ai-tech-stack.md) — Astro 4 + Tailwind 3 + React 18，目录结构与依赖陷阱
+- [X 中文 AI 种草闭环实操计划](x-zhongcao-playbook.md) — 基于生财三篇精华（超级标 18/19 + 陈木木种草页）的关联分析 + 落地方案，文档在 [X种草闭环_三文关联实操指南.md](X种草闭环_三文关联实操指南.md)
+- [AI 破局推荐页 /recommend/paiju](ai-poju-recommend-page.md) — 已出第一版（参考 whenreset.dev/scys 设计 token，做了 8 处微调避免侵权）；2 段占位已于 2026-10-13 替换为"东哥1"真实推荐语
+- [东哥1 个人档案](dongge-personal-profile.md) — 51 岁审计人 IP 底色：身份/工具栈/3 大项目/价值观/金句，所有内容产物的真实锚点
+- [苍何 GEO 五步法](canghe-geo-playbook.md) — 苍何《做IP就是在做GEO》方法论摘要：5 步法 + 4 大于 + 30 天计划 + 平台引用偏好
+- [陈木木种草页方法论](chenmumu-recommend-methodology.md) — 4 块结构（成绩板/脱敏摘要/问题清单/原作者原话）+ 6 步法，未来接入破局 CLI 自动更新精华帖解读的方法基础
+- [主页 vs 子页内容分工](dongge-main-vs-paiju-split.md) — 主页放东歌1 个人实战（CLI 赚钱/AI 工具），子页放圈友复盘/推荐
+- [GitHub 真实账号 dongge75](dongge75-github-account.md) — 用户名是 dongge75 不是 donggeai，donggeai.com 部署仓库在 dongge75/dongge-ai-site
+- [donggeai.com Cloudflare Pages 部署](donggeai-cloudflare-pages-deploy.md) — Pages 走 legacy "Continue to Pages" 入口；Astro preset 自动填；域名在 Cloudflare Registrar 买的，绑定时自动签证书
+- [建站手记《我是如何建立自己的个人主页》素材](building-website-article-material.md) — [建站手记_我是如何建立自己的个人主页.md](../024grwangye/建站手记_我是如何建立自己的个人主页.md)，公众号第一篇文案底稿（10 步 + 5 决策 + 8 踩坑，22KB）
+- [对话结束前自动存记忆](auto-save-conversation-facts.md) — 用户硬性要求：每对话结束前我主动扫一遍，把值得写公众号的事实存进 memory，不用用户提醒
+- [海外付款时账单信息必须和卡主一致](domain-payment-cardholder-info.md) — 借卡付款前先问朋友拿 3 样：卡主手机/全名/账单地址，3D Secure + AVS 验证会用
