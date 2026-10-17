@@ -5,19 +5,24 @@ export default {
     extend: {
       colors: {
         accent: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
+          DEFAULT: '#70ffc3',
+          400: '#70ffc3',
+          500: '#70ffc3',
+          '50-alpha': 'rgba(112,255,195,0.5)',
+          '30-alpha': 'rgba(112,255,195,0.3)',
+          '10-alpha': 'rgba(112,255,195,0.1)',
+        },
+        surface: {
+          DEFAULT: '#111111',
+          raised: '#151515',
+        },
+        line: {
+          DEFAULT: '#222222',
+          strong: '#343434',
         },
       },
       fontFamily: {
+        heading: ['Rethink Sans', 'Inter', 'Noto Sans SC', 'sans-serif'],
         sans: [
           'Inter',
           'Noto Sans SC',

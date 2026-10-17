@@ -31,45 +31,42 @@ const {
   class="group block h-full"
 >
   <div
-    class="rounded-2xl overflow-hidden ring-1 ring-neutral-800 shadow-xl shadow-black/30 transition group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-accent-500/20 bg-neutral-900 h-full flex flex-col"
-    class:list={[
-      'group-hover:ring-accent-500/40',
-    ]}
+    class="card-hover rounded-2xl overflow-hidden border border-[#222222] bg-transparent h-full flex flex-col"
   >
     <!-- 浏览器外壳 · 改深色 -->
-    <div class="bg-neutral-800/80 px-3 py-2.5 flex items-center gap-2 border-b border-neutral-700">
+    <div class="bg-[#151515] px-3 py-2.5 flex items-center gap-2 border-b border-[#222222]">
       <div class="flex gap-1.5">
         <span class="w-2.5 h-2.5 rounded-full bg-red-400/80"></span>
         <span class="w-2.5 h-2.5 rounded-full bg-yellow-400/80"></span>
         <span class="w-2.5 h-2.5 rounded-full bg-green-400/80"></span>
       </div>
-      <div class="flex-1 px-2 py-1 bg-neutral-900 rounded-md text-[11px] text-neutral-500 truncate font-mono flex items-center gap-1">
+      <div class="flex-1 px-2 py-1 bg-[#0a0a0a] rounded-md text-[11px] text-[#6b7280] truncate font-mono flex items-center gap-1">
         <span>🔒</span>
         <span class="truncate">{url}</span>
       </div>
-      <span class="text-neutral-500 text-xs">↗</span>
+      <span class="text-[#6b7280] text-xs">↗</span>
     </div>
 
     <!-- 截图占位 · 改深色渐变 -->
     <div
-      class="aspect-[2/1] relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-neutral-800/60 via-neutral-900 to-neutral-950"
+      class="aspect-[2/1] relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#151515] via-[#0a0a0a] to-[#0a0a0a]"
     >
-      <div class="absolute -top-6 -right-6 w-20 h-20 rounded-full bg-accent-500/10 blur-2xl"></div>
+      <div class="absolute -top-6 -right-6 w-20 h-20 rounded-full bg-accent-10-alpha blur-2xl"></div>
       <div class="text-center px-4 relative">
         <div class="text-5xl mb-2 drop-shadow-sm">{icon}</div>
-        <div class="text-sm text-neutral-400 font-mono">
+        <div class="text-sm text-[#9ca3af] font-mono">
           {screenshotNote || '网站截图（待补）'}
         </div>
       </div>
     </div>
 
     <!-- 标题 + CTA · 改深色版 -->
-    <div class="p-5 border-t border-neutral-800 flex-1 flex flex-col bg-neutral-900">
+    <div class="p-5 border-t border-[#222222] flex-1 flex flex-col">
       <div class="text-xs font-bold uppercase tracking-wider mb-2 text-accent-400">
         {tag}
       </div>
       <h3 class="text-xl font-bold text-white leading-tight">{title}</h3>
-      <p class="mt-2 text-sm text-neutral-400 line-clamp-2 leading-relaxed flex-1">{desc}</p>
+      <p class="mt-2 text-sm text-[#9ca3af] line-clamp-2 leading-relaxed flex-1">{desc}</p>
       <div class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent-400 group-hover:translate-x-1 transition">
         {cta} →
       </div>

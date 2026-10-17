@@ -10,11 +10,24 @@
     background: #0a0a0a;
   }
   body {
-    @apply bg-neutral-950 text-neutral-100;
+    @apply text-white;
+    background: #0a0a0a;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
   ::selection {
-    @apply bg-accent-300 text-accent-900;
+    @apply bg-accent-500 text-neutral-950;
+  }
+}
+
+@layer components {
+  /* 苍何风格：统一卡片悬停三件套 */
+  .card-hover {
+    transition: transform 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-2px);
+    border-color: rgba(112, 255, 195, 0.5);
+    background-color: #111111;
   }
 }
 

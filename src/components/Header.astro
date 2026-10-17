@@ -8,19 +8,19 @@ function isActive(href: string) {
 }
 ---
 
-<header class="sticky top-0 z-50 bg-neutral-950/80 backdrop-blur border-b border-neutral-800">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+<header class="sticky top-3 sm:top-4 z-50 px-4 sm:px-6">
+  <div class="max-w-5xl mx-auto h-14 rounded-2xl bg-[#0a0a0a]/80 backdrop-blur-lg border border-[#222222] flex items-center justify-between px-4 sm:px-5">
     <a href="/" class="flex items-center gap-2 font-semibold text-base sm:text-lg group">
-      <span class="text-accent-500 group-hover:rotate-12 transition">✦</span>
-      <span class="text-neutral-100">{SITE.title}</span>
+      <span class="text-accent-400 group-hover:rotate-12 transition">✦</span>
+      <span class="text-white">{SITE.title}</span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-7 text-sm">
+    <nav class="hidden md:flex items-center gap-6 text-sm">
       {NAV.map((item) => (
         <a
           href={item.href}
           class={`transition hover:text-accent-400 ${
-            isActive(item.href) ? 'text-accent-400 font-medium' : 'text-neutral-300'
+            isActive(item.href) ? 'text-accent-400 font-medium' : 'text-[#9ca3af]'
           }`}
         >
           {item.label}
@@ -31,13 +31,13 @@ function isActive(href: string) {
     <div class="flex items-center gap-3">
       <a
         href={`mailto:${SITE.email}`}
-        class="hidden sm:inline text-sm text-neutral-500 hover:text-neutral-200 transition"
+        class="hidden sm:inline text-sm text-[#6b7280] hover:text-white transition"
       >
         📧
       </a>
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 text-neutral-300"
+        class="md:hidden p-2 text-[#9ca3af]"
         aria-label="菜单"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -49,13 +49,13 @@ function isActive(href: string) {
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden border-t border-neutral-800 bg-neutral-950">
+  <div id="mobile-menu" class="hidden md:hidden max-w-5xl mx-auto mt-2 rounded-2xl bg-[#0a0a0a]/95 backdrop-blur-lg border border-[#222222]">
     <nav class="px-4 py-3 flex flex-col gap-1">
       {NAV.map((item) => (
         <a
           href={item.href}
           class={`px-3 py-2 rounded-lg text-sm ${
-            isActive(item.href) ? 'bg-accent-500/10 text-accent-400' : 'text-neutral-300 hover:bg-neutral-900'
+            isActive(item.href) ? 'bg-accent-10-alpha text-accent-400' : 'text-[#9ca3af] hover:bg-[#111111]'
           }`}
         >
           {item.label}
