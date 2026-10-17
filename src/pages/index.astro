@@ -278,8 +278,8 @@ const trainings = [
   <!-- 07 About -->
   <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
     <SectionLabel number="07" title="关于我" />
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-6 md:justify-between">
-      <div class="flex items-start gap-3 max-w-3xl flex-1">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-end">
+      <div class="flex items-start gap-3 max-w-3xl">
         <div
           class="w-20 h-20 rounded-full bg-accent-400 flex-shrink-0 flex items-center justify-center text-2xl text-neutral-950 font-bold "
         >
@@ -290,7 +290,7 @@ const trainings = [
           <p class="mt-3 text-[#9ca3af] leading-relaxed">
             <strong class="text-accent-400">AI 副业实战派</strong>，一个普通人用 AI 辅助主业和副业，用AI写公众号、做带货、搭电商平台、AI应用场景落地实操。
           </p>
-          <p class="mt-3 text-sm text-[#9ca3af]">
+          <p id="about-email-row" class="mt-3 text-sm text-[#9ca3af]">
             📧{' '}
             <a
               href={`mailto:${SITE.email}`}
@@ -307,23 +307,21 @@ const trainings = [
           </p>
         </div>
       </div>
-      <div class="flex-shrink-0 self-end md:self-end">
-        <div class="bg-[#151515] border border-[#222222] rounded-xl p-3 w-56 flex flex-col items-center gap-1.5 card-hover">
-          <div class="text-accent-400 text-[10px] font-semibold tracking-widest">
-            加我微信 / Personal
-          </div>
-          <img
-            src="/images/wechat-qrcode-full.webp"
-            alt="东歌AI 微信二维码"
-            width="160"
-            height="160"
-            loading="lazy"
-            class="w-40 h-40 block"
-          />
-          <p class="text-[10px] text-[#6b7280] text-center leading-snug">
-            长按图片保存到相册<br />微信「扫一扫」→ 从相册选图
-          </p>
+      <div class="bg-[#151515] border border-[#222222] rounded-xl p-3 w-56 flex flex-col items-center gap-1.5 card-hover self-end">
+        <div class="text-accent-400 text-[10px] font-semibold tracking-widest">
+          加我微信 / Personal
         </div>
+        <img
+          src="/images/wechat-qrcode-full.webp"
+          alt="东歌AI 微信二维码"
+          width="160"
+          height="160"
+          loading="lazy"
+          class="w-40 h-40 block"
+        />
+        <p class="text-[10px] text-[#6b7280] text-center leading-snug">
+          长按图片保存到相册<br />微信「扫一扫」→ 从相册选图
+        </p>
       </div>
     </div>
   </section>
