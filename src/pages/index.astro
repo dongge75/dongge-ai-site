@@ -111,9 +111,20 @@ const platforms = [
   <!-- 01 平台入口 — 最重要 -->
   <section id="platforms" class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
     <SectionLabel number="01" title="平台入口" />
-    <p class="text-neutral-400 -mt-6 mb-5 text-sm max-w-xl">
+    <p class="text-neutral-400 mb-5 text-sm max-w-xl">
       两个我亲自在做的项目。从这里进去，就是对应的官方页面。
     </p>
+    <div class="mb-5 rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900">
+      <img
+        src="/images/platform-preview.webp"
+        alt="AI 电商与创作平台预览"
+        width="1280"
+        height="621"
+        loading="lazy"
+        class="w-full h-auto block"
+      />
+    </div>
+
     <div class="grid md:grid-cols-2 gap-3">
       {platforms.map((p) => (
         <PlatformCard
@@ -134,8 +145,8 @@ const platforms = [
   <section id="toolkit" class="bg-neutral-900/50 border-y border-neutral-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="02" title="我目前在用的 AI 工具" />
-      <p class="text-neutral-400 -mt-6 mb-5 text-sm max-w-xl">
-        51 岁，审计人。这 4 类工具是我每天在用的组合，<strong class="text-accent-400">每类都能展开成一篇教程</strong>。
+      <p class="text-neutral-400 mb-5 text-sm max-w-xl">
+        51 岁，审计人。这 4 类工具是我每天在用的组合，<strong class="text-white">每类都能展开成一篇教程</strong>。
       </p>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
         <div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-500 transition group">
@@ -170,8 +181,8 @@ const platforms = [
   <section id="cli-money" class="bg-gradient-to-br from-accent-500/10 via-neutral-900/50 to-orange-500/5 border-y border-accent-500/30">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="03" title="用 CLI 赚钱 · 3 个真实场景" />
-      <p class="text-neutral-300 -mt-6 mb-5 text-sm max-w-2xl">
-        51 岁审计人。这是我过去 30 天用<strong class="text-accent-400">破局 CLI</strong>跑的 3 个真实工作流，每个都直接转化为收入。
+      <p class="text-neutral-300 mb-5 text-sm max-w-2xl">
+        51 岁审计人。这是我过去 30 天用<strong class="text-white">破局 CLI</strong>跑的 3 个真实工作流，每个都直接转化为收入。
       </p>
 
       <div class="grid md:grid-cols-3 gap-3">
@@ -237,7 +248,7 @@ const platforms = [
   <section id="content" class="bg-neutral-900/50 border-y border-neutral-800">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="04" title="Selected Content" />
-      <p class="text-neutral-500 -mt-6 mb-5 text-sm">
+      <p class="text-neutral-500 mb-5 text-sm">
         聚合自「{SITE.wechatOAName}」与本站长文
       </p>
       <div class="grid md:grid-cols-3 gap-3">
