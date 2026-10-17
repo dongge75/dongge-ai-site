@@ -278,8 +278,8 @@ const trainings = [
   <!-- 07 About -->
   <section id="about" class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
     <SectionLabel number="07" title="关于我" />
-    <div class="mt-5 grid grid-cols-1 md:grid-cols-[1fr_auto] items-end gap-6">
-      <div class="flex items-start gap-3 max-w-3xl">
+    <div class="mt-5 md:relative">
+      <div class="flex items-start gap-3 max-w-3xl pr-0 md:pr-52">
         <div
           class="w-20 h-20 rounded-full bg-accent-400 flex-shrink-0 flex items-center justify-center text-2xl text-neutral-950 font-bold "
         >
@@ -307,7 +307,7 @@ const trainings = [
           </p>
         </div>
       </div>
-      <div class="bg-white rounded-xl border border-[#222222] p-3 w-44 flex flex-col items-center gap-1.5 shadow-md">
+      <div class="hidden md:block absolute right-0 w-44 bg-white rounded-xl border border-[#222222] p-3 flex flex-col items-center gap-1.5 shadow-md" style="bottom: 0;">
         <div class="text-accent-400 text-[10px] font-bold tracking-widest">
           加我微信 / Personal
         </div>
