@@ -64,3 +64,15 @@ v11 之前我把通用句池 B 写成"为读者看"导向，**3 个变体都有"
 - [[natural-smooth-product-mention]] — v8/v9（自然丝滑=点名+步骤+中性）
 - [[wechat-content-mining]] — skill 本体（v12 模板 F 4 段）
 - [[template-f-evolution-log]] — v1→v12 演化日志
+
+
+---
+
+> **v12 skill 整合声明**（2026-10-17）：
+> - 本素材按 [[wechat-content-mining]] skill v12 模板 F 整理
+> - 工具描述按"必须提实际工具+不预设清单"（v9+v10 立）
+> - 不写"为商家做"导向（一箭双雕=内容真实>商单入口，v8 立）
+> - 不写"为别人看"导向（复盘=看有多少事，v11+v12 立）
+> - 不预设工具清单（实际用了哪个就写哪个，不从 8 个工具栈里选）
+> - 通用句池用 v12 短语版（3-7 字短语，参见 [[general-sentence-pool-a-b-v12]]）
+> - 完整 v12 演化日志见 [[template-f-evolution-log]]

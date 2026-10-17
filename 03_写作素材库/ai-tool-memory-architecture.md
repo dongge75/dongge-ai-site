@@ -221,3 +221,15 @@ C:\Users\wangkedong\.claude\projects\d--ObsidianVaults-024grwangye\memory\
 - [[donggeai-cloudflare-pages-deploy]] — Cloudflare 部署实战
 - [[_ClaudeCode原始索引]] — Claude Code 侧原始索引（14 个记忆文件清单）
 - WorkBuddy 用户级 MEMORY: `C:\Users\wangkedong\.workbuddy\user-3409cc3f-97c1-4261-b4a5-766ba551cdb8-personal\MEMORY.md`（文件路径，外部资源）
+
+
+---
+
+> **v12 skill 整合声明**（2026-10-17）：
+> - 本素材按 [[wechat-content-mining]] skill v12 模板 F 整理
+> - 工具描述按"必须提实际工具+不预设清单"（v9+v10 立）
+> - 不写"为商家做"导向（一箭双雕=内容真实>商单入口，v8 立）
+> - 不写"为别人看"导向（复盘=看有多少事，v11+v12 立）
+> - 不预设工具清单（实际用了哪个就写哪个，不从 8 个工具栈里选）
+> - 通用句池用 v12 短语版（3-7 字短语，参见 [[general-sentence-pool-a-b-v12]]）
+> - 完整 v12 演化日志见 [[template-f-evolution-log]]

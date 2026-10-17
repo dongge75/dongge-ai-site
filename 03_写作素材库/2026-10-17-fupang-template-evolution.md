@@ -105,3 +105,15 @@ tags: [已稿, 完整记录, 复盘, 模板 F 演化, v1→v12]
 - [[MEMORY.md]] — 铁律 1：每次对话结束前主动存 memory
 - [[no-fabrication-case-data]] — 不杜撰铁律
 - [[content-style]] — 文风铁律
+
+
+---
+
+> **v12 skill 整合声明**（2026-10-17）：
+> - 本素材按 [[wechat-content-mining]] skill v12 模板 F 整理
+> - 工具描述按"必须提实际工具+不预设清单"（v9+v10 立）
+> - 不写"为商家做"导向（一箭双雕=内容真实>商单入口，v8 立）
+> - 不写"为别人看"导向（复盘=看有多少事，v11+v12 立）
+> - 不预设工具清单（实际用了哪个就写哪个，不从 8 个工具栈里选）
+> - 通用句池用 v12 短语版（3-7 字短语，参见 [[general-sentence-pool-a-b-v12]]）
+> - 完整 v12 演化日志见 [[template-f-evolution-log]]
