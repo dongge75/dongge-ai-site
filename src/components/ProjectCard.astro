@@ -4,10 +4,9 @@ interface Props {
   desc: string;
   tag?: string;
   href?: string;
-  emoji?: string;
 }
 
-const { title, desc, tag, href, emoji = '🛠️' } = Astro.props;
+const { title, desc, tag, href } = Astro.props;
 const clickable = href && href !== '#';
 ---
 
@@ -16,8 +15,7 @@ const clickable = href && href !== '#';
     href={href}
     class="card-hover group block rounded-xl border border-[#222222] bg-transparent p-6"
   >
-    <div class="text-3xl mb-4">{emoji}</div>
-    <div class="flex items-center gap-2 mb-2 flex-wrap">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
       <h3 class="font-semibold text-white group-hover:text-accent-400 transition">
         {title}
       </h3>
@@ -34,8 +32,7 @@ const clickable = href && href !== '#';
   </a>
 ) : (
   <div class="block rounded-xl border border-dashed border-[#343434] bg-transparent p-6">
-    <div class="text-3xl mb-4 opacity-60">{emoji}</div>
-    <div class="flex items-center gap-2 mb-2 flex-wrap">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
       <h3 class="font-semibold text-[#6b7280]">{title}</h3>
       {tag && (
         <span class="text-xs px-2 py-0.5 rounded bg-[#151515] text-[#6b7280]">

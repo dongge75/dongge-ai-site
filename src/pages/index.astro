@@ -13,21 +13,18 @@ const projects = [
     title: '东歌智能客服',
     desc: '面向淘宝/拼多多商家的 AI 自动回复工具，减少 80% 客服人力',
     tag: 'AI Agent',
-    emoji: '🤖',
     href: '/projects/',
   },
   {
     title: '东歌选品助手',
     desc: '基于历史销量数据，智能推荐下一个潜在爆款商品',
     tag: '电商',
-    emoji: '📊',
     href: '/projects/',
   },
   {
     title: '东歌 AI 副业笔记',
     desc: '记录我用 AI 工具做副业的全过程与方法论',
     tag: '知识库',
-    emoji: '📝',
     href: '/blog/',
   },
 ];
@@ -56,27 +53,21 @@ const articles = [
   },
 ];
 
-const tools = [
+const trainings = [
   {
-    title: 'MD 转公众号',
-    desc: '粘贴 Markdown，一键复制公众号富文本',
-    emoji: '📝',
-    href: '/tools/md2wechat/',
-    ready: true,
+    title: 'AI 图书视频号带货实战训练营',
+    desc: '0 基础学会 AI 图书带货完整流程：账号定位、爆款选题、AI 文案、AI 视频、选品、制作、发布、数据复盘。',
+    href: 'https://aishopdg.quantv.com/',
   },
   {
-    title: '封面图生成',
-    desc: '标题 + 模板，一键导出公众号封面 PNG',
-    emoji: '🎨',
-    href: '/tools/cover/',
-    ready: false,
+    title: 'AI 爆款短视频起号涨粉训练营',
+    desc: '5 节课 14 天带你跑通：注册账号 → 选赛道 → 做视频 → 涨粉 → 起号。',
+    href: 'https://aishopdg.quantv.com/',
   },
   {
-    title: '配色卡生成',
-    desc: '输入主色，导出 5 色调色板（CSS / JSON）',
-    emoji: '🎨',
-    href: '/tools/palette/',
-    ready: false,
+    title: 'WorkBuddy AI 训练营',
+    desc: 'WorkBuddy AI 训练营，覆盖周报方案、数据报表、PPT 制作等职场高频场景。',
+    href: 'https://aishopdg.quantv.com/',
   },
 ];
 ---
@@ -271,15 +262,15 @@ const tools = [
     </div>
   </section>
 
-  <!-- 06 Tools -->
-  <section id="tools" class="bg-[#0a0a0a]/50 border-y border-[#222222]">
+  <!-- 06 训练营 -->
+  <section id="trainings" class="bg-[#0a0a0a]/50 border-y border-[#222222]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-      <SectionLabel number="06" title="一站式工具集" />
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-        {tools.map((t) => <ToolCard {...t} />)}
+      <SectionLabel number="06" title="训练营" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {trainings.map((t) => <ToolCard {...t} ready={true} />)}
       </div>
       <div class="mt-5 text-center">
-        <a href="/tools/" class="text-accent-400 hover:underline">所有工具 →</a>
+        <a href="https://aishopdg.quantv.com/" target="_blank" rel="noopener noreferrer" class="text-accent-400 hover:underline">更多训练营 →</a>
       </div>
     </div>
   </section>

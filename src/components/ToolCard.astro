@@ -3,11 +3,10 @@ interface Props {
   title: string;
   desc: string;
   href: string;
-  emoji: string;
   ready?: boolean;
 }
 
-const { title, desc, href, emoji, ready = true } = Astro.props;
+const { title, desc, href, ready = true } = Astro.props;
 ---
 
 {ready ? (
@@ -15,7 +14,6 @@ const { title, desc, href, emoji, ready = true } = Astro.props;
     href={href}
     class="card-hover group relative block rounded-xl border border-[#222222] bg-transparent p-6"
   >
-    <div class="text-3xl mb-3">{emoji}</div>
     <h3 class="font-semibold text-white group-hover:text-accent-400 transition">
       {title}
     </h3>
@@ -29,7 +27,6 @@ const { title, desc, href, emoji, ready = true } = Astro.props;
     class="relative block rounded-xl border border-dashed border-[#343434] bg-transparent p-6"
     title="该工具尚未上线"
   >
-    <div class="text-3xl mb-3 opacity-60">{emoji}</div>
     <h3 class="font-semibold text-[#6b7280]">{title}</h3>
     <p class="mt-1 text-sm text-[#6b7280] leading-relaxed">{desc}</p>
     <span class="absolute top-3 right-3 text-xs px-2 py-0.5 border border-[#343434] text-[#6b7280] rounded">
