@@ -5,7 +5,6 @@ import SectionLabel from '../components/SectionLabel.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ToolCard from '../components/ToolCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import PlatformCard from '../components/PlatformCard.astro';
 import Button from '../components/Button.astro';
 import { SITE } from '../consts';
 
@@ -88,7 +87,7 @@ const tools = [
   <!-- 01 平台入口 — 最重要 -->
   <section id="platforms" class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
     <SectionLabel number="01" title="平台入口" />
-    <p class="text-neutral-400 mb-6 text-sm max-w-xl">
+    <p class="text-[#9ca3af] mb-6 text-sm max-w-xl">
       两个我亲自在做的项目。从这里进去，就是对应的官方页面。
     </p>
 
@@ -98,7 +97,7 @@ const tools = [
         href="https://aishopdg.quantv.com/"
         target="_blank"
         rel="noopener noreferrer"
-        class="group block rounded-xl border border-neutral-800 bg-neutral-900 overflow-hidden hover:border-accent-400 transition"
+        class="card-hover group block rounded-xl border border-[#222222] bg-transparent overflow-hidden hover:border-accent-50-alpha transition"
       >
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs text-accent-400 font-semibold tracking-wider mb-2">
@@ -106,15 +105,15 @@ const tools = [
             <span>电商 + 自媒体 AI</span>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">AI 电商与创作平台</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">
+          <p class="text-sm text-[#9ca3af] leading-relaxed">
             一个平台同时跑通电商 + 自媒体：无限画布、智能体、爆款复刻、公众号/小红书/抖音一键发布。
           </p>
           <div class="mt-4 flex items-center justify-between text-xs">
-            <span class="text-neutral-400">aishopdg.quantv.com</span>
+            <span class="text-[#9ca3af]">aishopdg.quantv.com</span>
             <span class="text-accent-400 group-hover:underline">立即体验 →</span>
           </div>
         </div>
-        <div class="border-t border-neutral-800">
+        <div class="border-t border-[#222222]">
           <img
             src="/images/platform-preview.webp"
             alt="AI 电商与创作平台预览"
@@ -129,7 +128,7 @@ const tools = [
       <!-- 平台 2 · AI 实用工具社群（等用户发图后补） -->
       <a
         href="/recommend/paiju/"
-        class="group block rounded-xl border border-neutral-800 bg-neutral-900 overflow-hidden hover:border-accent-400 transition"
+        class="card-hover group block rounded-xl border border-[#222222] bg-transparent overflow-hidden hover:border-accent-50-alpha transition"
       >
         <div class="p-5">
           <div class="flex items-center gap-2 text-xs text-accent-400 font-semibold tracking-wider mb-2">
@@ -137,15 +136,15 @@ const tools = [
             <span>AI 实用工具社群</span>
           </div>
           <h3 class="text-lg font-semibold text-white mb-2">AI 实用工具社群</h3>
-          <p class="text-sm text-neutral-400 leading-relaxed">
+          <p class="text-sm text-[#9ca3af] leading-relaxed">
             东哥1 邀请入口 · 7 天免费体验 + 3 天新手实操课。
           </p>
           <div class="mt-4 flex items-center justify-between text-xs">
-            <span class="text-neutral-400">donggeai.com/recommend/paiju</span>
+            <span class="text-[#9ca3af]">donggeai.com/recommend/paiju</span>
             <span class="text-accent-400 group-hover:underline">立即加入 →</span>
           </div>
         </div>
-        <div class="border-t border-neutral-800 aspect-[1280/621] bg-neutral-800 flex items-center justify-center text-neutral-400 text-sm">
+        <div class="border-t border-[#222222] aspect-[1280/621] bg-[#151515] flex items-center justify-center text-[#9ca3af] text-sm">
           paiju 主页截图（待补）
         </div>
       </a>
@@ -153,90 +152,90 @@ const tools = [
   </section>
 
   <!-- 02 我在用的 AI 工具 -->
-  <section id="toolkit" class="bg-neutral-900/50 border-y border-neutral-800">
+  <section id="toolkit" class="bg-[#0a0a0a]/50 border-y border-[#222222]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="02" title="我目前在用的 AI 工具" />
-      <p class="text-neutral-400 mb-5 text-sm max-w-xl">
+      <p class="text-[#9ca3af] mb-5 text-sm max-w-xl">
         51 岁，审计人。这 4 类工具是我每天在用的组合，<strong>每类都能展开成一篇教程</strong>。
       </p>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
-        <div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-500 transition group">
+        <div class="card-hover rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group">
           <div class="text-3xl mb-3">💻</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">写代码</div>
           <h3 class="text-lg font-semibold text-white">Claude Code / Codex / WorkBuddy</h3>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">写审计过程小工具：底稿生成、抽样脚本、Excel 自动化、报告模板。51 岁也能写代码，关键是 AI 帮我跨过语法门槛。</p>
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">写审计过程小工具：底稿生成、抽样脚本、Excel 自动化、报告模板。51 岁也能写代码，关键是 AI 帮我跨过语法门槛。</p>
         </div>
-        <div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-500 transition group">
+        <div class="card-hover rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group">
           <div class="text-3xl mb-3">📝</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">写文案</div>
           <h3 class="text-lg font-semibold text-white">ChatGPT / Claude Code</h3>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">拆解对标公众号 / 小红书 / X 文案，提炼结构、金句、情绪节奏。我公众号 100+ 篇的选题初稿都从这里来。</p>
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">拆解对标公众号 / 小红书 / X 文案，提炼结构、金句、情绪节奏。我公众号 100+ 篇的选题初稿都从这里来。</p>
         </div>
-        <div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-500 transition group">
+        <div class="card-hover rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group">
           <div class="text-3xl mb-3">📚</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">做带货</div>
           <h3 class="text-lg font-semibold text-white">ChatGPT / WorkBuddy</h3>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">视频号图书带货：选品分析、口播稿、剪辑、发布、数据复盘。AI 让我一个人就是一个带货团队。</p>
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">视频号图书带货：选品分析、口播稿、剪辑、发布、数据复盘。AI 让我一个人就是一个带货团队。</p>
         </div>
-        <div class="rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-500 transition group">
+        <div class="card-hover rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group">
           <div class="text-3xl mb-3">📖</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">写公众号</div>
           <h3 class="text-lg font-semibold text-white">Obsidian / 飞书 / Claude Code</h3>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">100+ 篇原创：选题、写作、润色、排版、发布全流程。Obsidian 管知识库，飞书管协作，Claude Code 管润色。</p>
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">100+ 篇原创：选题、写作、润色、排版、发布全流程。Obsidian 管知识库，飞书管协作，Claude Code 管润色。</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 03 用 CLI 赚钱 · 东歌1 个人实战 -->
-  <section id="cli-money" class="bg-neutral-900/50 border-y border-neutral-800">
+  <section id="cli-money" class="bg-[#0a0a0a]/50 border-y border-[#222222]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="03" title="用 CLI 赚钱" />
-      <p class="text-neutral-400 mb-5 text-sm max-w-2xl">
+      <p class="text-[#9ca3af] mb-5 text-sm max-w-2xl">
         51 岁审计人。这是我过去 30 天用<strong>破局 CLI</strong>跑的 3 个真实工作流，每个都直接转化为收入。
       </p>
 
       <div class="grid md:grid-cols-3 gap-3">
         <!-- 卡片 1 · 公众号 -->
-        <div class="relative rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-400 transition group overflow-hidden">
-          <div class="absolute top-3 right-3 text-[10px] font-bold text-neutral-400 border border-neutral-700 px-2 py-1 rounded uppercase tracking-wider">每天 1 小时</div>
+        <div class="card-hover relative rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group overflow-hidden">
+          <div class="absolute top-3 right-3 text-[10px] font-bold text-[#9ca3af] border border-[#343434] px-2 py-1 rounded uppercase tracking-wider">每天 1 小时</div>
           <div class="text-3xl mb-3">📝</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">公众号 · 选题 / 摘要</div>
           <h3 class="text-lg font-semibold text-white">100+ 篇选题不焦虑</h3>
-          <p class="mt-3 text-sm text-neutral-400 leading-relaxed">
+          <p class="mt-3 text-sm text-[#9ca3af] leading-relaxed">
             <strong class="text-white">之前</strong>：每天手动读 5 篇精华帖，1 小时才出 1 个选题。
           </p>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">
             <strong class="text-white">用 CLI</strong>：抓 30 篇精华帖 → 5 个候选选题 + 摘要初稿，10 分钟搞定。
           </p>
           <p class="mt-3 text-sm font-semibold text-white">→ 收入：流量主 + 带货分成</p>
         </div>
 
         <!-- 卡片 2 · 视频号带货 -->
-        <div class="relative rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-400 transition group overflow-hidden">
-          <div class="absolute top-3 right-3 text-[10px] font-bold text-neutral-400 border border-neutral-700 px-2 py-1 rounded uppercase tracking-wider">每周 5 小时</div>
+        <div class="card-hover relative rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group overflow-hidden">
+          <div class="absolute top-3 right-3 text-[10px] font-bold text-[#9ca3af] border border-[#343434] px-2 py-1 rounded uppercase tracking-wider">每周 5 小时</div>
           <div class="text-3xl mb-3">📚</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">视频号 · 图书带货</div>
           <h3 class="text-lg font-semibold text-white">1 人 = 1 个带货团队</h3>
-          <p class="mt-3 text-sm text-neutral-400 leading-relaxed">
+          <p class="mt-3 text-sm text-[#9ca3af] leading-relaxed">
             <strong class="text-white">之前</strong>：每条口播稿 30 分钟，选品靠刷抖店。
           </p>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">
             <strong class="text-white">用 CLI</strong>：抓同类爆款脚本 → 5 版口播稿，5 分钟选稿；选品分析 5 分钟出报告。
           </p>
           <p class="mt-3 text-sm font-semibold text-white">→ 收入：视频号图书 CPS</p>
         </div>
 
         <!-- 卡片 3 · AI 电商 -->
-        <div class="relative rounded-xl border border-neutral-800 bg-neutral-900 p-4 hover:border-accent-400 transition group overflow-hidden">
-          <div class="absolute top-3 right-3 text-[10px] font-bold text-neutral-400 border border-neutral-700 px-2 py-1 rounded uppercase tracking-wider">每单 30 分钟</div>
+        <div class="card-hover relative rounded-xl border border-[#222222] bg-transparent p-4 hover:border-accent-50-alpha transition group overflow-hidden">
+          <div class="absolute top-3 right-3 text-[10px] font-bold text-[#9ca3af] border border-[#343434] px-2 py-1 rounded uppercase tracking-wider">每单 30 分钟</div>
           <div class="text-3xl mb-3">🛒</div>
           <div class="text-xs text-white font-semibold tracking-wider mb-1">AI 电商 · 客服 / 选品</div>
           <h3 class="text-lg font-semibold text-white">每天 200 条消息不加班</h3>
-          <p class="mt-3 text-sm text-neutral-400 leading-relaxed">
+          <p class="mt-3 text-sm text-[#9ca3af] leading-relaxed">
             <strong class="text-white">之前</strong>：每天回复 200 条相似问题，2 小时翻消息。
           </p>
-          <p class="mt-2 text-sm text-neutral-400 leading-relaxed">
+          <p class="mt-2 text-sm text-[#9ca3af] leading-relaxed">
             <strong class="text-white">用 CLI</strong>：CLI 调智能体，10 分钟排查常见问题 + 5 分钟优化话术。
           </p>
           <p class="mt-3 text-sm font-semibold text-white">→ 收入：店铺销售额 + 复购</p>
@@ -245,7 +244,7 @@ const tools = [
 
       <!-- 底部双 CTA -->
       <div class="mt-5 flex flex-col sm:flex-row gap-4 items-center justify-center">
-        <Button href="https://aipoju.com/cli" variant="primary" size="md" external>
+        <Button href="https://aipoju.com/cli" variant="accent" size="md" external>
           立即体验破局 CLI →
         </Button>
         <Button href="/recommend/paiju/" variant="secondary" size="md">
@@ -256,10 +255,10 @@ const tools = [
   </section>
 
   <!-- 04 Selected Content -->
-  <section id="content" class="bg-neutral-900/50 border-y border-neutral-800">
+  <section id="content" class="bg-[#0a0a0a]/50 border-y border-[#222222]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="04" title="精选内容" />
-      <p class="text-neutral-400 mb-5 text-sm">
+      <p class="text-[#9ca3af] mb-5 text-sm">
         聚合自「{SITE.wechatOAName}」与本站长文
       </p>
       <div class="grid md:grid-cols-3 gap-3">
@@ -283,7 +282,7 @@ const tools = [
   </section>
 
   <!-- 06 Tools -->
-  <section id="tools" class="bg-neutral-900/50 border-y border-neutral-800">
+  <section id="tools" class="bg-[#0a0a0a]/50 border-y border-[#222222]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <SectionLabel number="06" title="一站式工具集" />
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -300,16 +299,16 @@ const tools = [
     <SectionLabel number="07" title="关于我" />
     <div class="flex items-start gap-3 max-w-3xl">
       <div
-        class="w-20 h-20 rounded-full bg-accent-400 flex-shrink-0 flex items-center justify-center text-2xl text-neutral-950 font-bold shadow-lg shadow-accent-500/30"
+        class="w-20 h-20 rounded-full bg-accent-400 flex-shrink-0 flex items-center justify-center text-2xl text-neutral-950 font-bold "
       >
         东
       </div>
       <div>
         <h3 class="text-xl font-semibold text-white">你好，我是 东歌AI</h3>
-        <p class="mt-3 text-neutral-400 leading-relaxed">
+        <p class="mt-3 text-[#9ca3af] leading-relaxed">
           <strong class="text-accent-400">AI 副业实战派</strong>，帮普通人用 AI 写公众号、做带货、搭电商平台。
         </p>
-        <p class="mt-3 text-sm text-neutral-400">
+        <p class="mt-3 text-sm text-[#9ca3af]">
           📧{' '}
           <a
             href={`mailto:${SITE.email}`}

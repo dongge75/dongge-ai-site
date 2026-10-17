@@ -3,12 +3,12 @@ import { SITE } from '../consts';
 const year = new Date().getFullYear();
 ---
 
-<footer class="mt-32 border-t border-neutral-800 bg-neutral-900">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 text-sm text-neutral-400">
+<footer class="mt-32 border-t border-[#222222]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-sm text-[#9ca3af]">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
       <div>
-        <p class="font-medium text-neutral-200">© {year} {SITE.title}</p>
-        <p class="mt-1 text-neutral-500">{SITE.tagline}</p>
+        <p class="font-medium text-white">© {year} {SITE.title}</p>
+        <p class="mt-1 text-[#6b7280]">{SITE.tagline}</p>
       </div>
       <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
         <a href={`mailto:${SITE.email}`} class="hover:text-accent-400 transition">
@@ -18,7 +18,7 @@ const year = new Date().getFullYear();
         <a href="/rss.xml" class="hover:text-accent-400 transition">RSS</a>
       </div>
     </div>
-    <p class="mt-8 text-xs text-neutral-600">
+    <p class="mt-8 text-xs text-[#6b7280]">
       {SITE.icp ? `备案号：${SITE.icp} · ` : ''}Built with Astro · 本站由 东歌 维护
     </p>
   </div>
